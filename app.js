@@ -25,18 +25,14 @@ mongoose
     useNewUrlParser: true
   })
   .then(x => {
-    console.log(
-      `Connected to Mongo! Database name: "${x.connections[0].name}"`
-    );
+    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
   })
   .catch(err => {
     console.error("Error connecting to mongo", err);
   });
 
 const app_name = require("./package.json").name;
-const debug = require("debug")(
-  `${app_name}:${path.basename(__filename).split(".")[0]}`
-);
+const debug = require("debug")(`${app_name}:${path.basename(__filename).split(".")[0]}`);
 
 const app = express();
 
@@ -86,6 +82,9 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 app.use("/", index);
+
+const portfolio = require("./routes/portfolio");
+app.use("/portfolio", portfolio);
 
 // const projectRoutes = require("./routes/project");
 // app.use("/api/projects", projectRoutes);
