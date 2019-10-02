@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import { Route } from "react-router-dom";
-// import Projects from "./components/Projects";
+import Portfolio from "./components/Portfolio";
 // import ProjectDetails from "./components/ProjectDetails";
 // import TaskDetails from "./components/TaskDetails";
 import Signup from "./components/Signup";
@@ -29,16 +29,9 @@ class App extends React.Component {
         {/* <Route exact path="/projects" component={Projects} /> */}
 
         {/* if there's no logged in user, don't show the projects page */}
-        {/* <Route
-          exact
-          path="/projects"
-          render={props => {
-            if (this.state.user) return <Projects {...props} />;
-            else return <Redirect to={"/"} />;
-          }}
-        />
+        <Route exact path="/portfolio" component={Portfolio} />
 
-        <Route
+        {/* <Route
           exact
           path="/projects/:id"
           render={props => <ProjectDetails {...props} user={this.state.user} />}
@@ -66,3 +59,12 @@ class App extends React.Component {
 }
 
 export default App;
+
+// <Route
+// exact
+// path="/portfolio"
+// render={props => {
+//   if (this.state.user) return <Portfolio {...props} />;
+//   else return <Redirect to={"/"} />;
+// }}
+// />
