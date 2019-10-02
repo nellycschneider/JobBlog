@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 // import TaskDetails from "./components/TaskDetails";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import CV from "./components/CV";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -53,6 +54,11 @@ class App extends React.Component {
           exact
           path="/login"
           render={props => <Login setUser={this.setUser} {...props} />}
+        />
+        <Route
+          exact
+          path="/cv"
+          render={props => <CV setUser={this.setUser} {...props} />}
         />
       </div>
     );
