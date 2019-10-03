@@ -92,4 +92,7 @@ app.use("/api/auth", authRoutes);
 const cvRoutes = require("./routes/cv");
 app.use("/api/cv", cvRoutes);
 
+const userRoutes = require("./routes/userform");
+app.use("/", userRoutes);
+
 module.exports = app;

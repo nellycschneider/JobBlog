@@ -2,11 +2,11 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { Route } from "react-router-dom";
 import Portfolio from "./components/Portfolio";
-// import ProjectDetails from "./components/ProjectDetails";
-// import TaskDetails from "./components/TaskDetails";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import CV from "./components/CV";
+import FinishedCV from "./components/FinishedCV";
+
+import UserForm from "./components/UserForm";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -31,13 +31,8 @@ class App extends React.Component {
         {/* if there's no logged in user, don't show the projects page */}
         <Route exact path="/portfolio" component={Portfolio} />
 
-        {/* <Route
-          exact
-          path="/projects/:id"
-          render={props => <ProjectDetails {...props} user={this.state.user} />}
-        /> */}
+        {/* <FinishedCV /> */}
 
-        {/* <Route exact path="/tasks/:id" component={TaskDetails} /> */}
         <Route
           exact
           path="/signup"
@@ -50,8 +45,13 @@ class App extends React.Component {
         />
         <Route
           exact
-          path="/cv"
-          render={props => <CV setUser={this.setUser} {...props} />}
+          path="/form"
+          render={props => <UserForm setUser={this.setUser} {...props} />}
+        />
+        <Route
+          exact
+          path="/cv/:id"
+          render={props => <FinishedCV setUser={this.setUser} {...props} />}
         />
       </div>
     );

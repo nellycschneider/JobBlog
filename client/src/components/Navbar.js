@@ -17,7 +17,7 @@ const Navbar = props => {
         <Link to="/">Home</Link>
       </Nav.Brand>
       <Nav.Brand>
-        <Link to="/cv">CV</Link>
+        <Link to="/form">CV Form</Link>
       </Nav.Brand>
 
       {props.user ? (

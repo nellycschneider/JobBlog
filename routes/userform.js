@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const CVModel = require("../models/CVModel");
 
-router.post("/", (req, res) => {
+router.post("/createCv", (req, res) => {
   const {
     name,
     email,
@@ -207,9 +207,11 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/cv/:id", (req, res) => {
+  console.log("ROUTE CV");
   CVModel.findById(req.params.id)
     .then(cv => {
+      console.log(cv);
       if (!cv) {
         res.status(404).json(cv);
       } else {
