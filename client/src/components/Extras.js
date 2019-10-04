@@ -15,9 +15,7 @@ class Extras extends Component {
 
     const data = this.props.values;
 
-    axios
-      .post("/createCv", data)
-      .then((res) => console.log(res))
+    axios.post("/createCv", data).then(res => console.log(res));
     e.target.reset();
   };
 
