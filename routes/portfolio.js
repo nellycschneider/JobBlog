@@ -33,8 +33,20 @@ router.get("/", (req, res) => {
     });
 });
 
-// PUT /api/projects/:id
-router.put("/:id", (req, res) => {
+// GET /portfolio/:id
+router.get("/project/:id", (req, res) => {
+  Project.findOne({ _id: req.params.id })
+    .then(project => {
+      console.log(project);
+      res.json(project);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+// PUT portfolio/:id
+router.put("/project/:id", (req, res) => {
   console.log("Proect:", req);
   const { title, description, content } = req.body;
 
@@ -47,8 +59,8 @@ router.put("/:id", (req, res) => {
     });
 });
 
-// DELETE /api/projects/:id
-router.delete("/:id", (req, res) => {
+// DELETE portfolio/:id
+router.delete("/project/:id", (req, res) => {
   // delete the project
   Project.findByIdAndDelete(req.params.id)
     .then(project => {

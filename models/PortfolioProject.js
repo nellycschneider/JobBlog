@@ -5,7 +5,12 @@ const projectSchema = new Schema(
   {
     title: String,
     description: String,
-    content: String
+    content: [
+      {
+        imgDescription: String,
+        img: String
+      }
+    ]
     //owner: { type: Schema.Types.ObjectId, ref: "User" }
   },
   {

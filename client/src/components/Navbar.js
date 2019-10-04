@@ -17,6 +17,9 @@ const Navbar = props => {
         <Link to="/">Home</Link>
       </Nav.Brand>
       <Nav.Brand>
+        <Link to="/portfolio">Portfolio</Link>
+      </Nav.Brand>
+      <Nav.Brand>
         <Link to="/cv">CV</Link>
       </Nav.Brand>
 

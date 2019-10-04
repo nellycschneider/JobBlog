@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 // import ProjectList from "./ProjectList";
 // import AddProject from "./AddProject";
+import Projects from "./Projects";
 import axios from "axios";
 
 export default class Portfolio extends Component {
@@ -14,7 +16,7 @@ export default class Portfolio extends Component {
 
   getData = () => {
     axios
-      .get("/projects")
+      .get("/portfolio")
       .then(response => {
         this.setState({
           projects: response.data
@@ -27,10 +29,12 @@ export default class Portfolio extends Component {
 
   render() {
     return (
-      <div className="projects-container">
-        <h1>Hi ich bin das Portfolio</h1>
-        {/* <AddProject getData={this.getData} />
-        <ProjectList projects={this.state.projects} /> */}
+      <div>
+        <h1>The Portfolio of</h1>
+        <Link to="/portfolio/dashboard">Edit Projects</Link>
+        <Projects projects={this.state.projects} />
+        {/* <AddProject getData={this.getData} /> */}
+        {/* <ProjectList projects={this.state.projects} /> */}
       </div>
     );
   }
