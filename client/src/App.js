@@ -59,19 +59,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-/*
-
-
-<Route
-exact
-path="/portfolio"
-render={props => {
-  if (this.state.user) return <Portfolio {...props} />;
-  else return <Redirect to={"/"} />;
-}}
-/>
-
-render={props => <ProjectDetails {...props} user={this.state.user} />}
-
-*/
