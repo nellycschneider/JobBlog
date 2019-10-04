@@ -1,8 +1,32 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class CreateNewProject extends Component {
   state = {
-    content: [],
+    title: "",
+    description: "",
+    content: []
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    axios
+      .post("/portfolio", {
+        title: this.state.title,
+        description: this.state.description,
+        content: this.state.content
+      })
+      .then(() => {
+        this.state({
+          title: "",
+          description: "",
+          content: []
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   handleClick = event => {
@@ -11,10 +35,21 @@ export default class CreateNewProject extends Component {
       content: [...this.state.content, { imgDescription: "", img: "" }]
     });
   };
+
+  handleChangeTwo = event => {
+    const { name, value } = event.target;
+    console.log(name);
+    console.log(value);
+    console.log(this.state);
+    this.setState({
+      [name]: value
+    });
+  };
+
   handleChange = (event, index) => {
     const { name, value } = event.target;
     let updatedContent = this.state.content.map((el, i) => {
-      if (i == index) {
+      if (i === index) {
         return {
           ...el,
           [name]: value
@@ -38,14 +73,14 @@ export default class CreateNewProject extends Component {
   render() {
     return (
       <div>
-        <form action="">
+        <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Project Title: </label>
-            <input type="text" name="title" id="title" />
+            <input type="text" name="title" id="title" onChange={this.handleChangeTwo} value={this.state.title} />
           </div>
           <div className="description">
             <label htmlFor="description">Project Description: </label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" onChange={this.handleChangeTwo} value={this.state.description}></textarea>
           </div>
           {/* <div className="content">
             <label htmlFor="imgUpload">Upload a Picture: </label>
@@ -61,7 +96,7 @@ export default class CreateNewProject extends Component {
                 <label htmlFor="description">Picture Description: </label>
                 <textarea
                   name="imgDescription"
-                  id="subDescription"
+                  id="imgDescription"
                   cols="30"
                   rows="10"
                   value={el.imgDescription}
@@ -71,6 +106,7 @@ export default class CreateNewProject extends Component {
             );
           })}
           <button onClick={this.handleClick}>Create new</button>
+          <button type="submit">Create Post</button>
         </form>
       </div>
     );
