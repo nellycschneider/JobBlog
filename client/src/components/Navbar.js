@@ -11,26 +11,27 @@ const handleLogout = props => {
 
 const Navbar = props => {
   return (
-    <Nav className="nav justify-content-end" bg="primary">
+    <Nav className="nav justify-content-end" bg="dark">
       {props.user && <Nav.Brand>Welcome, {props.user.username}</Nav.Brand>}
       <Nav.Brand>
         <Link to="/">Home</Link>
       </Nav.Brand>
       <Nav.Brand>
-        <Link to="/form">CV Form</Link>
+        <Link to="/cv/form">CV Form</Link>
       </Nav.Brand>
       <Nav.Brand>
         <Link to="/portfolio">Portfolio</Link>
       </Nav.Brand>
-      <Nav.Brand>
-        <Link to="/cv">CV</Link>
-      </Nav.Brand>
+      {/* <Nav.Brand>
+        <Link to="/cv/all">All CVs</Link>
+      </Nav.Brand> */}
 
       {props.user ? (
+        // user is logged in, show these
         <>
-          {/* <Nav.Brand>
-            <Link to="/">Projects</Link>
-          </Nav.Brand> */}
+          <Nav.Brand>
+            <Link to="/cv/all">All CVs</Link>
+          </Nav.Brand>
           <Nav.Brand>
             <Link to="/" onClick={() => handleLogout(props)}>
               Logout
@@ -38,6 +39,7 @@ const Navbar = props => {
           </Nav.Brand>
         </>
       ) : (
+        // else show these
         <>
           <Nav.Brand>
             <Link to="/signup">Signup</Link>

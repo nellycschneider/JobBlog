@@ -13,8 +13,10 @@ import Project from "./components/blog/Project";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import FinishedCV from "./components/FinishedCV";
-
+import AllCVs from "./components/AllCVs";
 import UserForm from "./components/UserForm";
+
+import Home from "./components/Home";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -38,20 +40,58 @@ class App extends React.Component {
 
         {/* if there's no logged in user, don't show the projects page */}
         <Switch>
+          <Route exact path="/" user={this.state.user} component={Home} />
           {/* ================BLOG Router===================== */}
-          <Route exact path="/portfolio" user={this.state.user} component={Portfolio} />
-          <Route exact path="/portfolio/dashboard" component={PortfolioDashboard} />
-          <Route path="/portfolio/dashboard/create-new" component={CreateNewProject} />
-          <Route path="/portfolio/dashboard/edit-project" component={EditProject} />
+          <Route
+            exact
+            path="/portfolio"
+            user={this.state.user}
+            component={Portfolio}
+          />
+          <Route
+            exact
+            path="/portfolio/dashboard"
+            component={PortfolioDashboard}
+          />
+          <Route
+            path="/portfolio/dashboard/create-new"
+            component={CreateNewProject}
+          />
+          <Route
+            path="/portfolio/dashboard/edit-project"
+            component={EditProject}
+          />
           <Route path="/portfolio/project/:id" component={Project} />
           {/* ================BLOG Router===================== */}
 
           {/* <Route exact path="/tasks/:id" component={TaskDetails} /> */}
-          <Route exact path="/signup" render={props => <Signup setUser={this.setUser} {...props} />} />
-          <Route exact path="/login" render={props => <Login setUser={this.setUser} {...props} />} />
-          {/* <Route exact path="/cv" render={props => <CV setUser={this.setUser} {...props} />} /> */}
-          <Route exact path="/form" render={props => <UserForm setUser={this.setUser} {...props} />} />
-          <Route exact path="/cv/:id" render={props => <FinishedCV setUser={this.setUser} {...props} />} />
+          <Route
+            exact
+            path="/signup"
+            render={props => <Signup setUser={this.setUser} {...props} />}
+          />
+          <Route
+            exact
+            path="/login"
+            render={props => <Login setUser={this.setUser} {...props} />}
+          />
+          <Route
+            exact
+            path="/cv/form"
+            render={props => <UserForm setUser={this.setUser} {...props} />}
+          />
+
+          <Route
+            exact
+            path="/cv/all"
+            render={props => <AllCVs setUser={this.setUser} {...props} />}
+          />
+
+          <Route
+            exact
+            path="/cv/:id"
+            render={props => <FinishedCV setUser={this.setUser} {...props} />}
+          />
         </Switch>
       </div>
     );

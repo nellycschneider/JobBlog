@@ -93,10 +93,7 @@ app.use("/portfolio", portfolio);
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);
 
-// const cvRoutes = require("./routes/cv");
-// app.use("/api/cv", cvRoutes);
-
 const userRoutes = require("./routes/userform");
-app.use("/", userRoutes);
+app.use("/cv", userRoutes);
 
 module.exports = app;

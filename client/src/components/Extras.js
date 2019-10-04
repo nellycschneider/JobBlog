@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -15,7 +16,7 @@ class Extras extends Component {
 
     const data = this.props.values;
 
-    axios.post("/createCv", data).then(res => console.log(res));
+    axios.post("/cv", data).then(res => console.log(res));
     e.target.reset();
   };
 
@@ -105,6 +106,10 @@ class Extras extends Component {
           </div>
           <br />
         </form>
+        {/* <button type="submit" htmlFor="/all" className="btn btn-info">
+          <Link to={`/cv/all`}>All CVs</Link>
+          <i className="fas fa-download ml-1"></i>
+        </button> */}
       </div>
     );
   }

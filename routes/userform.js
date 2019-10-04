@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const CVModel = require("../models/CVModel");
 
-router.post("/createCv", (req, res) => {
+// POST /cv
+// create a new cv
+router.post("/", (req, res) => {
   const {
     name,
     email,
@@ -98,6 +100,7 @@ router.post("/createCv", (req, res) => {
     });
 });
 
+// GET /cv/all
 router.get("/all", (req, res) => {
   CVModel.find()
     .then(cv => {
@@ -108,6 +111,7 @@ router.get("/all", (req, res) => {
     });
 });
 
+// PUT /cv/:id
 router.put("/:id", (req, res) => {
   const {
     name,
@@ -207,7 +211,8 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.get("/cv/:id", (req, res) => {
+// GET /cv/:id
+router.get("/:id", (req, res) => {
   console.log("ROUTE CV");
   CVModel.findById(req.params.id)
     .then(cv => {
@@ -223,6 +228,7 @@ router.get("/cv/:id", (req, res) => {
     });
 });
 
+// DELETE /cv/:id
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
 

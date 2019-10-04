@@ -76,20 +76,24 @@ export default class CreateNewProject extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Project Title: </label>
-            <input type="text" name="title" id="title" onChange={this.handleChangeTwo} value={this.state.title} />
+            <input
+              type="text"
+              name="title"
+              id="title"
+              onChange={this.handleChangeTwo}
+              value={this.state.title}
+            />
           </div>
           <div className="description">
             <label htmlFor="description">Project Description: </label>
-<<<<<<< HEAD
             <textarea
               name="description"
               id="description"
               cols="30"
               rows="10"
+              onChange={this.handleChangeTwo}
+              value={this.state.description}
             ></textarea>
-=======
-            <textarea name="description" id="description" cols="30" rows="10" onChange={this.handleChangeTwo} value={this.state.description}></textarea>
->>>>>>> 5eb558b545aeb605438b3974adce029584ef8fa6
           </div>
           {/* <div className="content">
             <label htmlFor="imgUpload">Upload a Picture: </label>
