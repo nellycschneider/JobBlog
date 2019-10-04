@@ -72,7 +72,7 @@ export default class CVDetail extends Component {
     event.preventDefault();
     const id = this.props.match.params.id;
     axios
-      .put(`/api/projects/${id}`, {
+      .put(`/api/cv/${id}`, {
         name: this.state.name,
         summary: this.state.summary,
         skills: this.state.skills,

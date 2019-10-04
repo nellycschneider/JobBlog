@@ -88,7 +88,7 @@ export default class FinishedCV extends Component {
           edu1_qualification: response.data.edu1_qualification,
           edu1_desc: response.data.edu1_desc,
 
-          edu2_school: response.dataedu2_school,
+          edu2_school: response.data.edu2_school,
           edu2_year: response.data.edu2_year,
           edu2_qualification: response.data.edu2_qualification,
           edu2_desc: response.data.edu2_desc,
@@ -178,12 +178,66 @@ export default class FinishedCV extends Component {
         <div className="card-body text-center pt-5 pb-5">
           <i className="fas fa-check-circle fa-7x text-success"></i>
 
-          <h2>{name}</h2>
-          <h4>Email:</h4>
+          <h1>{name}</h1>
+          <h6>Email:</h6>
           <p>{email}</p>
-          <h4>Phone:</h4>
+          <h6>Contact:</h6>
           <p>{phone}</p>
-          <br />
+          <h6>LinkedIn:</h6>
+          <p>
+            <a href={linkedin}>{linkedin}</a>
+          </p>
+          <h6>GitHub:</h6>
+          <p>
+            <a href={github}>{github}</a>
+          </p>
+          <h3>Skills:</h3>
+          <p>{skills}</p>
+          <h3>Experience:</h3>
+          <h5>
+            {exp1_org}, {exp1_pos}
+          </h5>
+          <p>{exp1_dur}</p>
+          <p>{exp1_desc}</p>
+
+          <h5>
+            {exp2_org}, {exp2_pos}
+          </h5>
+          <p>{exp2_dur}</p>
+          <p>{exp2_desc}</p>
+
+          <h3>Projects:</h3>
+          <h5>
+            {proj1_title} ({proj1_link})
+          </h5>
+          <p>{proj1_desc}</p>
+
+          <h5>
+            {proj2_title} ({proj2_link})
+          </h5>
+          <p>{proj2_desc}</p>
+
+          <h3>Education:</h3>
+          <h5>
+            {edu1_school} ({edu1_qualification}, {edu1_year})
+          </h5>
+          <p>{edu1_desc}</p>
+
+          <h5>
+            {edu2_school} ({edu2_qualification}, {edu2_year})
+          </h5>
+          <p>{edu2_desc}</p>
+
+          <h3>Extra-Curriculars/Activities:</h3>
+          <h5>Languages:</h5>
+          <p>{extra_1}</p>
+          <h5>Hobbies:</h5>
+          <p>{extra_2}</p>
+          <ul>
+            <li>{extra_3}</li>
+            <li>{extra_4}</li>
+            <li>{extra_5}</li>
+          </ul>
         </div>
       </div>
     );
