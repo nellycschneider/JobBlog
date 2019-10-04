@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class CreateNewProject extends Component {
   state = {
-    content: [],
+    content: []
   };
 
   handleClick = event => {
@@ -14,7 +14,7 @@ export default class CreateNewProject extends Component {
   handleChange = (event, index) => {
     const { name, value } = event.target;
     let updatedContent = this.state.content.map((el, i) => {
-      if (i == index) {
+      if (i === index) {
         return {
           ...el,
           [name]: value
@@ -45,7 +45,12 @@ export default class CreateNewProject extends Component {
           </div>
           <div className="description">
             <label htmlFor="description">Project Description: </label>
-            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="10"
+            ></textarea>
           </div>
           {/* <div className="content">
             <label htmlFor="imgUpload">Upload a Picture: </label>
@@ -57,7 +62,13 @@ export default class CreateNewProject extends Component {
             return (
               <div className="content" key={el.id}>
                 <label htmlFor="imgUpload">Upload a Picture: </label>
-                <input type="file" name="imgUpload" id="imgUpload" value={el.img} onChange={e => this.handleChange(e, i)} />
+                <input
+                  type="file"
+                  name="imgUpload"
+                  id="imgUpload"
+                  value={el.img}
+                  onChange={e => this.handleChange(e, i)}
+                />
                 <label htmlFor="description">Picture Description: </label>
                 <textarea
                   name="imgDescription"

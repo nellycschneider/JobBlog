@@ -176,8 +176,6 @@ export default class FinishedCV extends Component {
     return (
       <div className="card animated bounceIn">
         <div className="card-body text-center pt-5 pb-5">
-          <i className="fas fa-check-circle fa-7x text-success"></i>
-
           <h1>{name}</h1>
           <h6>Email:</h6>
           <p>{email}</p>
@@ -199,35 +197,29 @@ export default class FinishedCV extends Component {
           </h5>
           <p>{exp1_dur}</p>
           <p>{exp1_desc}</p>
-
           <h5>
             {exp2_org}, {exp2_pos}
           </h5>
           <p>{exp2_dur}</p>
           <p>{exp2_desc}</p>
-
           <h3>Projects:</h3>
           <h5>
             {proj1_title} ({proj1_link})
           </h5>
           <p>{proj1_desc}</p>
-
           <h5>
             {proj2_title} ({proj2_link})
           </h5>
           <p>{proj2_desc}</p>
-
           <h3>Education:</h3>
           <h5>
             {edu1_school} ({edu1_qualification}, {edu1_year})
           </h5>
           <p>{edu1_desc}</p>
-
           <h5>
             {edu2_school} ({edu2_qualification}, {edu2_year})
           </h5>
           <p>{edu2_desc}</p>
-
           <h3>Extra-Curriculars/Activities:</h3>
           <h5>Languages:</h5>
           <p>{extra_1}</p>
@@ -239,6 +231,9 @@ export default class FinishedCV extends Component {
             <li>{extra_5}</li>
           </ul>
         </div>
+        <form action="">
+          <button>Edit CV</button>
+        </form>
       </div>
     );
   }
