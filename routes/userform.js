@@ -155,7 +155,6 @@ router.put("/:id", (req, res) => {
     extra_4,
     extra_5
   } = req.body;
-
   CVModel.findByIdAndUpdate(
     req.params.id,
     {

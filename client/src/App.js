@@ -15,6 +15,7 @@ import Login from "./components/Login";
 import FinishedCV from "./components/FinishedCV";
 import AllCVs from "./components/AllCVs";
 import UserForm from "./components/UserForm";
+import EditCV from "./components/EditCV";
 
 import Home from "./components/Home";
 
@@ -92,6 +93,12 @@ class App extends React.Component {
             path="/cv/:id"
             render={props => <FinishedCV setUser={this.setUser} {...props} />}
           />
+
+          {/* <Route
+            exact
+            path="/cv/edit/:id"
+            render={props => <EditCV setUser={this.setUser} {...props} />}
+          /> */}
         </Switch>
       </div>
     );

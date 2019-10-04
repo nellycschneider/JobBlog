@@ -53,7 +53,6 @@ export default class FinishedCV extends Component {
   getData = () => {
     console.log("Getting the data...");
     const id = this.props.match.params.id;
-    console.log(id);
     axios
       .get(`/cv/${id}`)
       .then(response => {
@@ -124,13 +123,13 @@ export default class FinishedCV extends Component {
   };
 
   //edit CV
-  handleChange = event => {
-    const { name, value } = event.target;
-    console.log(name, value);
-    this.setState({
-      [name]: value
-    });
-  };
+  // handleChange = event => {
+  //   const { name, value } = event.target;
+  //   console.log(name, value);
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -340,7 +339,9 @@ export default class FinishedCV extends Component {
         </div>
         {/* {this.props.user ? (
           <> */}
-        <EditCV />
+        <EditCV
+          id={this.props.match.params}
+        />
         <form>
           {/* <Button onClick={this.handleChange}>Edit CV</Button> */}
           <Button variant="danger" onClick={this.deleteCV}>
