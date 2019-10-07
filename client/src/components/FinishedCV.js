@@ -47,17 +47,17 @@ export default class FinishedCV extends Component {
     extra_5: "",
 
     editForm: false,
-    error: null
+    error: null,
+    cvs: ""
   };
 
   getData = () => {
-    console.log("Getting the data...");
     const id = this.props.match.params.id;
     axios
       .get(`/cv/${id}`)
       .then(response => {
-        console.log("Response from AXIOS", response);
-
+        // console.log("Response from AXIOS", response);
+        console.log(response.data.owner);
         this.setState({
           name: response.data.name,
           email: response.data.email,
@@ -98,11 +98,12 @@ export default class FinishedCV extends Component {
           extra_2: response.data.extra_2,
           extra_3: response.data.extra_3,
           extra_4: response.data.extra_4,
-          extra_5: response.data.extra_5
+          extra_5: response.data.extra_5,
+          cvs: response.data
         });
       })
       .catch(err => {
-        console.log(err.response);
+        // console.log(err.response);
         if (err.response.status === 404) {
           this.setState({ error: "Not found" });
         }
@@ -111,7 +112,7 @@ export default class FinishedCV extends Component {
 
   componentDidMount = () => {
     this.getData();
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   handleChange = event => {
@@ -121,15 +122,6 @@ export default class FinishedCV extends Component {
       [name]: value
     });
   };
-
-  //edit CV
-  // handleChange = event => {
-  //   const { name, value } = event.target;
-  //   console.log(name, value);
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -175,7 +167,8 @@ export default class FinishedCV extends Component {
         extra_2: this.state.extra_2,
         extra_3: this.state.extra_3,
         extra_4: this.state.extra_4,
-        extra_5: this.state.extra_5
+        extra_5: this.state.extra_5,
+        cvs: this.state
       })
       .then(response => {
         this.setState({
@@ -219,12 +212,19 @@ export default class FinishedCV extends Component {
           extra_3: response.data.extra_3,
           extra_4: response.data.extra_4,
           extra_5: response.data.extra_5,
-          editForm: false
+          editForm: false,
+          cvs: response.data
         });
       })
       .catch(err => {
         console.log(err);
       });
+  };
+
+  toggleEditForm = () => {
+    this.setState({
+      editForm: !this.state.editForm
+    });
   };
 
   deleteCV = () => {
@@ -235,7 +235,9 @@ export default class FinishedCV extends Component {
   };
 
   render() {
-    console.log(this.props.values);
+    if (this.state.error) return <div>{this.state.error}</div>;
+    else if (!this.state.cvs) return <></>;
+
     const {
       name,
       email,
@@ -276,9 +278,21 @@ export default class FinishedCV extends Component {
       extra_2,
       extra_3,
       extra_4,
-      extra_5
+      extra_5,
+      cvs
     } = this.state;
 
+    const owner = cvs.owner._id;
+    console.log("OWNER: ", owner);
+    const currentUser = this.state.cvs.owner;
+    console.log("Current User: ", currentUser);
+
+    let canDelete = false;
+    if (currentUser && currentUser._id === owner) {
+      canDelete = true;
+    }
+    console.log("CAN DELETE ", canDelete);
+    // console.log("STATE CVS", this.state.cvs);
     return (
       <div className="card animated bounceIn">
         <div className="card-body text-center pt-5 pb-5">
@@ -337,21 +351,29 @@ export default class FinishedCV extends Component {
             <li>{extra_5}</li>
           </ul>
         </div>
-        {/* {this.props.user ? (
-          <> */}
-        <EditCV
-          id={this.props.match.params}
-        />
         <form>
-          {/* <Button onClick={this.handleChange}>Edit CV</Button> */}
-          <Button variant="danger" onClick={this.deleteCV}>
-            Delete project
+          <Button onClick={this.toggleEditForm} style={{ cursor: "pointer" }}>
+            Show Edit form
           </Button>
+
+          {canDelete && (
+            <Button variant="danger" onClick={this.deleteCV}>
+              Delete CV
+            </Button>
+          )}
+
+          {/* <Button variant="danger" onClick={this.deleteCV}>
+            Delete CV
+          </Button> */}
         </form>
-        {/* </>
-        ) : (
-          <></>
-        )} */}
+        {this.state.editForm && (
+          <EditCV
+            id={this.props.match.params}
+            {...this.state}
+            // handleChange={this.handleChange}
+            // handleSubmit={this.handleSubmit}
+          />
+        )}
       </div>
     );
   }
