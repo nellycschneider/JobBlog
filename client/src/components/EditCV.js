@@ -47,6 +47,8 @@ class EditCV extends Component {
     extra_5: ""
   };
 
+  // Activity/Achievement
+
   //edit CV
   handleChange = event => {
     const { name, value } = event.target;
@@ -103,7 +105,7 @@ class EditCV extends Component {
         extra_5: this.state.extra_5
       })
       .then(response => {
-        console.log(response.data);
+        // console.log(response.data);
         this.setState({
           name: response.data.name,
           email: response.data.email,
@@ -205,7 +207,7 @@ class EditCV extends Component {
         });
       })
       .catch(err => {
-        console.log(err.response);
+        // console.log(err.response);
         if (err.response.status === 404) {
           this.setState({ error: "Not found" });
         }
@@ -217,49 +219,6 @@ class EditCV extends Component {
   };
 
   render() {
-    const {
-      name,
-      email
-      //   phone,
-      //   linkedin,
-      //   github,
-      //   skills,
-
-      //   exp1_org,
-      //   exp1_pos,
-      //   exp1_desc,
-      //   exp1_dur,
-
-      //   exp2_org,
-      //   exp2_pos,
-      //   exp2_desc,
-      //   exp2_dur,
-
-      //   proj1_title,
-      //   proj1_link,
-      //   proj1_desc,
-
-      //   proj2_title,
-      //   proj2_link,
-      //   proj2_desc,
-
-      //   edu1_school,
-      //   edu1_year,
-      //   edu1_qualification,
-      //   edu1_desc,
-
-      //   edu2_school,
-      //   edu2_year,
-      //   edu2_qualification,
-      //   edu2_desc,
-
-      //   extra_1,
-      //   extra_2,
-      //   extra_3,
-      //   extra_4,
-      //   extra_5
-    } = this.state;
-
     return (
       <div>
         <h2>Edit project: </h2>
@@ -281,6 +240,295 @@ class EditCV extends Component {
               type="text"
               name="email"
               value={this.email}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Contact:</Form.Label>
+            <Form.Control
+              type="text"
+              name="phone"
+              value={this.phone}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>LinkedIn:</Form.Label>
+            <Form.Control
+              type="text"
+              name="linkedin"
+              value={this.linkedin}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Github:</Form.Label>
+            <Form.Control
+              type="text"
+              name="github"
+              value={this.github}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Skills:</Form.Label>
+            <Form.Control
+              type="text"
+              name="skills"
+              value={this.skills}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h3>Experience:</h3>
+          <h4>First experience</h4>
+          <Form.Group>
+            <Form.Label>Institute/Organisation:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp1_org"
+              value={this.exp1_org}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Position:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp1_pos"
+              value={this.exp1_pos}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp1_desc"
+              value={this.exp1_desc}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Duration:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp1_dur"
+              value={this.exp1_dur}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h4>Second experience</h4>
+          <Form.Group>
+            <Form.Label>Institute/Organisation:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp2_org"
+              value={this.exp1_org}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Position:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp2_pos"
+              value={this.exp2_pos}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp2_desc"
+              value={this.exp2_desc}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Duration:</Form.Label>
+            <Form.Control
+              type="text"
+              name="exp2_dur"
+              value={this.exp2_dur}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h3>Projects</h3>
+          <h4>First project</h4>
+          <Form.Group>
+            <Form.Label>Title:</Form.Label>
+            <Form.Control
+              type="text"
+              name="proj1_title"
+              value={this.proj1_title}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Link:</Form.Label>
+            <Form.Control
+              type="text"
+              name="proj1_link"
+              value={this.proj1_link}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              type="text"
+              name="proj1_desc"
+              value={this.proj1_desc}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h4>Second project</h4>
+          <Form.Group>
+            <Form.Label>Title:</Form.Label>
+            <Form.Control
+              type="text"
+              name="proj2_title"
+              value={this.proj2_title}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Link:</Form.Label>
+            <Form.Control
+              type="text"
+              name="proj2_link"
+              value={this.proj2_link}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              type="text"
+              name="proj2_desc"
+              value={this.proj2_desc}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h3>Education</h3>
+          <h4>First school</h4>
+          <Form.Group>
+            <Form.Label>College/University:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu1_school"
+              value={this.edu1_school}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Year:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu1_year"
+              value={this.edu1_year}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Qualification:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu1_qualification"
+              value={this.edu1_qualification}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu1_desc"
+              value={this.edu1_desc}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h4>Second school</h4>
+          <Form.Group>
+            <Form.Label>College/University:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu2_school"
+              value={this.edu2_school}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Year:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu2_year"
+              value={this.edu2_year}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Qualification:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu2_qualification"
+              value={this.edu2_qualification}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Description:</Form.Label>
+            <Form.Control
+              type="text"
+              name="edu2_desc"
+              value={this.edu2_desc}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <h3>Skills</h3>
+          <Form.Group>
+            <Form.Label>Languages:</Form.Label>
+            <Form.Control
+              type="text"
+              name="extra_1"
+              value={this.extra_1}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Hobbies:</Form.Label>
+            <Form.Control
+              type="text"
+              name="extra_2"
+              value={this.extra_2}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Activity/Achievement:</Form.Label>
+            <Form.Control
+              type="text"
+              name="extra_3"
+              value={this.extra_3}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Activity/Achievement:</Form.Label>
+            <Form.Control
+              type="text"
+              name="extra_4"
+              value={this.extra_4}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Activity/Achievement:</Form.Label>
+            <Form.Control
+              type="text"
+              name="extra_5"
+              value={this.extra_5}
               onChange={this.handleChange}
             />
           </Form.Group>

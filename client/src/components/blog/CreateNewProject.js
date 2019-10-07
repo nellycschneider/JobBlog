@@ -69,7 +69,10 @@ export default class CreateNewProject extends Component {
     event.preventDefault();
     this.setState(
       {
-        content: [...this.state.content, { id: newId, imgDescription: "", img: "" }]
+        content: [
+          ...this.state.content,
+          { id: newId, imgDescription: "", img: "" }
+        ]
       },
       () => console.log(this.state.content)
     );
@@ -78,7 +81,9 @@ export default class CreateNewProject extends Component {
   handleClickDelete = deletedContent => {
     // event.preventDefault();
     // const filtContent = this.state.content.map(x => x.id !== id);
-    const filtContent = this.state.content.filter(content => content.id !== deletedContent.id);
+    const filtContent = this.state.content.filter(
+      content => content.id !== deletedContent.id
+    );
     console.log(filtContent);
     this.setState({
       content: filtContent
@@ -127,7 +132,14 @@ export default class CreateNewProject extends Component {
                 </button>
 
                 <label htmlFor="imgUpload">Upload a Picture: </label>
+<<<<<<< HEAD
                 <input type="file" onChange={e => this.handleFileUpload(e, el.id)} />
+=======
+                <input
+                  type="file"
+                  onChange={e => this.handleFileUpload(e, el.id)}
+                />
+>>>>>>> eaa705194cb0856d19e084effd1b942b913f63da
 
                 <label htmlFor="description">Picture Description: </label>
                 <textarea
