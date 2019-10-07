@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import ProjectList from "./ProjectList";
-// import AddProject from "./AddProject";
 import Projects from "./Projects";
 import axios from "axios";
 
