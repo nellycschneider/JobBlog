@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import shortId from "shortid";
+import service from "../../services/api";
+
+console.log(shortId.generate());
 
 export default class CreateNewProject extends Component {
   state = {
@@ -18,7 +22,7 @@ export default class CreateNewProject extends Component {
         content: this.state.content
       })
       .then(() => {
-        this.state({
+        this.setState({
           title: "",
           description: "",
           content: []
@@ -29,10 +33,55 @@ export default class CreateNewProject extends Component {
       });
   };
 
+  handleFileUpload = (e, id) => {
+    // const { name, value } = e.target;
+    console.log("The file to be uploaded is: ", e.target.files[0]);
+
+    const uploadData = new FormData();
+    // imageUrl => this name has to be the same as in the model since we pass
+    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
+    uploadData.append("imageUrl", e.target.files[0]);
+
+    service
+      .handleUpload(uploadData)
+      .then(response => {
+        console.log(response);
+        // console.log('response is: ', response);
+        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
+        let updatedContent = this.state.content.map(el => {
+          if (el.id === id) {
+            return {
+              ...el,
+              img: response.secure_url
+            };
+          }
+          return el;
+        });
+        this.setState({ content: updatedContent });
+      })
+      .catch(err => {
+        console.log("Error while uploading the file: ", err);
+      });
+  };
+
   handleClick = event => {
+    const newId = shortId.generate();
     event.preventDefault();
+    this.setState(
+      {
+        content: [...this.state.content, { id: newId, imgDescription: "", img: "" }]
+      },
+      () => console.log(this.state.content)
+    );
+  };
+
+  handleClickDelete = deletedContent => {
+    // event.preventDefault();
+    // const filtContent = this.state.content.map(x => x.id !== id);
+    const filtContent = this.state.content.filter(content => content.id !== deletedContent.id);
+    console.log(filtContent);
     this.setState({
-      content: [...this.state.content, { imgDescription: "", img: "" }]
+      content: filtContent
     });
   };
 
@@ -46,10 +95,10 @@ export default class CreateNewProject extends Component {
     });
   };
 
-  handleChange = (event, index) => {
+  handleChange = (event, id) => {
     const { name, value } = event.target;
-    let updatedContent = this.state.content.map((el, i) => {
-      if (i === index) {
+    let updatedContent = this.state.content.map(el => {
+      if (el.id === id) {
         return {
           ...el,
           [name]: value
@@ -59,16 +108,6 @@ export default class CreateNewProject extends Component {
     });
     this.setState({ content: updatedContent });
   };
-  // postTemplate = () => {
-  //   return (
-  //     <div className="content">
-  //       <label htmlFor="imgUpload">Upload a Picture: </label>
-  //       <input type="file" name="imgUpload" id="imgUpload" />
-  //       <label htmlFor="description">Picture Description: </label>
-  //       <textarea name="subDescription" id="subDescription" cols="30" rows="10"></textarea>
-  //     </div>
-  //   );
-  // };
 
   render() {
     return (
@@ -82,17 +121,17 @@ export default class CreateNewProject extends Component {
             <label htmlFor="description">Project Description: </label>
             <textarea name="description" id="description" cols="30" rows="10" onChange={this.handleChangeTwo} value={this.state.description}></textarea>
           </div>
-          {/* <div className="content">
-            <label htmlFor="imgUpload">Upload a Picture: </label>
-            <input type="file" name="imgUpload" id="imgUpload" />
-            <label htmlFor="description">Picture Description: </label>
-            <textarea name="subDescription" id="subDescription" cols="30" rows="10"></textarea>
-          </div> */}
-          {this.state.content.map((el, i) => {
+
+          {this.state.content.map(el => {
             return (
               <div className="content" key={el.id}>
+                <button onClick={() => this.handleClickDelete(el)}>
+                  <i className="fas fa-minus"></i>
+                </button>
+
                 <label htmlFor="imgUpload">Upload a Picture: </label>
-                <input type="file" name="imgUpload" id="imgUpload" value={el.img} onChange={e => this.handleChange(e, i)} />
+                <input type="file" onChange={e => this.handleFileUpload(e, el.id)} />
+
                 <label htmlFor="description">Picture Description: </label>
                 <textarea
                   name="imgDescription"
@@ -100,7 +139,7 @@ export default class CreateNewProject extends Component {
                   cols="30"
                   rows="10"
                   value={el.imgDescription}
-                  onChange={e => this.handleChange(e, i)}
+                  onChange={e => this.handleChange(e, el.id)}
                 ></textarea>
               </div>
             );
@@ -112,3 +151,9 @@ export default class CreateNewProject extends Component {
     );
   }
 }
+
+/*
+
+
+
+*/

@@ -8,6 +8,7 @@ router.post("/", (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const content = req.body.content;
+  console.log(req.body);
 
   Project.create({
     title,

@@ -11,7 +11,8 @@ const ProjectList = props => {
         return (
           <div key={project._id}>
             <h3>
-              <Link to={`/portfolio/project/${project._id}`}>{project.title}</Link>
+              {/* <Link to={`/portfolio/project/${project._id}`}>{project.title}</Link> */}
+              <Link to={`/portfolio/dashboard/edit-project/${project._id}`}>{project.title}</Link>
             </h3>
           </div>
         );
