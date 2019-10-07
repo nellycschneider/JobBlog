@@ -41,7 +41,7 @@ export default class EditProject extends Component {
       .then(response => {
         console.log(response);
         let updatedContent = this.state.content.map(el => {
-          if (el.id === id) {
+          if (el._id === id) {
             return {
               ...el,
               img: response.secure_url
@@ -63,6 +63,27 @@ export default class EditProject extends Component {
     this.setState({
       [name]: value
     });
+  };
+
+  // handleChangeTwo = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
+
+  handleChangeEl = (event, id) => {
+    const { name, value } = event.target;
+    let updatedContent = this.state.content.map(el => {
+      if (el._id === id) {
+        return {
+          ...el,
+          [name]: value
+        };
+      }
+      return el;
+    });
+    this.setState({ content: updatedContent });
   };
 
   handleClick = event => {
@@ -122,7 +143,7 @@ export default class EditProject extends Component {
           {this.state.content.length > 0
             ? this.state.content.map(el => {
                 return (
-                  <div className="content" key={el.id}>
+                  <div className="content" key={el._id}>
                     <button onClick={() => this.handleClickDelete(el)}>
                       <i className="fas fa-minus"></i>
                     </button>
@@ -136,7 +157,7 @@ export default class EditProject extends Component {
                       cols="30"
                       rows="10"
                       value={el.imgDescription}
-                      onChange={e => this.handleChange(e, el._id)}
+                      onChange={e => this.handleChangeEl(e, el._id)}
                     ></textarea>
                   </div>
                 );

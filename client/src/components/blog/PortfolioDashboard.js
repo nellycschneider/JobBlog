@@ -28,10 +28,15 @@ export default class Portfolio extends Component {
   render() {
     return (
       <div>
-        <h1>Dashboard</h1>
-        <Link to="/portfolio/dashboard/create-new">Create New</Link>
-        {/* <AddProject getData={this.getData} /> */}
-        <ProjectDashboard projects={this.state.projects} />
+        <div className="portfolioEdit">
+          <div className="portfolioHead">
+            <h3 className="sectionHead">Portfolio Edit</h3>
+          </div>
+          <Link to="/portfolio/dashboard/create-new" className="btn">
+            Create New
+          </Link>
+          <ProjectDashboard projects={this.state.projects} />
+        </div>
       </div>
     );
   }

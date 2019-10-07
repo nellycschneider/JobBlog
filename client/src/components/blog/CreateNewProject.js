@@ -87,9 +87,6 @@ export default class CreateNewProject extends Component {
 
   handleChangeTwo = event => {
     const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
-    console.log(this.state);
     this.setState({
       [name]: value
     });
@@ -115,24 +112,11 @@ export default class CreateNewProject extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Project Title: </label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              onChange={this.handleChangeTwo}
-              value={this.state.title}
-            />
+            <input type="text" name="title" id="title" onChange={this.handleChangeTwo} value={this.state.title} />
           </div>
           <div className="description">
             <label htmlFor="description">Project Description: </label>
-            <textarea
-              name="description"
-              id="description"
-              cols="30"
-              rows="10"
-              onChange={this.handleChangeTwo}
-              value={this.state.description}
-            ></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" onChange={this.handleChangeTwo} value={this.state.description}></textarea>
           </div>
 
           {this.state.content.map(el => {
@@ -143,18 +127,8 @@ export default class CreateNewProject extends Component {
                 </button>
 
                 <label htmlFor="imgUpload">Upload a Picture: </label>
-<<<<<<< HEAD
-                <input
-                  type="file"
-                  name="imgUpload"
-                  id="imgUpload"
-                  value={el.img}
-                  onChange={e => this.handleChange(e, i)}
-                />
-=======
                 <input type="file" onChange={e => this.handleFileUpload(e, el.id)} />
 
->>>>>>> blog-fix
                 <label htmlFor="description">Picture Description: </label>
                 <textarea
                   name="imgDescription"
