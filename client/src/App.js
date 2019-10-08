@@ -9,13 +9,11 @@ import EditProject from "./components/blog/EditProject";
 import CreateNewProject from "./components/blog/CreateNewProject";
 import Project from "./components/blog/Project";
 //================Blog=====================
-// import TaskDetails from "./components/TaskDetails";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import FinishedCV from "./components/FinishedCV";
 import AllCVs from "./components/AllCVs";
 import UserForm from "./components/UserForm";
-// import EditCV from "./components/EditCV";
 
 import Home from "./components/Home";
 
@@ -40,7 +38,7 @@ class App extends React.Component {
         {/* <Route exact path="/projects" component={Projects} /> */}
 
         {/* if there's no logged in user, don't show the projects page */}
-        <div className="container">
+        <div className="container-custom">
           <Switch>
             <Route exact path="/" user={this.state.user} component={Home} />
             {/* ================BLOG Router===================== */}

@@ -65,13 +65,6 @@ export default class EditProject extends Component {
     });
   };
 
-  // handleChangeTwo = event => {
-  //   const { name, value } = event.target;
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // };
-
   handleChangeEl = (event, id) => {
     const { name, value } = event.target;
     let updatedContent = this.state.content.map(el => {
@@ -103,6 +96,14 @@ export default class EditProject extends Component {
     console.log(filtContent);
     this.setState({
       content: filtContent
+    });
+  };
+
+  deleteProject = () => {
+    const id = this.props.match.params.id;
+    console.log(id);
+    axios.delete(`/portfolio/project/${id}`).then(() => {
+      this.props.history.push("/portfolio/dashboard");
     });
   };
 
@@ -165,6 +166,9 @@ export default class EditProject extends Component {
             : null}
           <button onClick={this.handleClick}>Create new</button>
           <button type="submit">Create Post</button>
+          <button onClick={this.deleteProject}>
+            <i className="fas fa-minus"></i>
+          </button>
         </form>
       </div>
     );

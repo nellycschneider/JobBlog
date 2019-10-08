@@ -14,7 +14,7 @@ html {
   font-size: 10px;
 }
 
-.container {
+.container-custom {
   padding: 0 20px;
 }
 
@@ -31,6 +31,16 @@ p {
 }
 
 /*============= Utils =============*/
+.my-1 {
+  margin: 10px 0;
+}
+.my-2 {
+  margin: 25px 0;
+}
+.my-3 {
+  margin: 40px 0;
+}
+
 .content {
   text-align: left;
 }
@@ -41,6 +51,10 @@ p {
 
 .type {
   color: #979797;
+}
+
+.title {
+  font-size: 1.5rem;
 }
 
 .Link {
@@ -54,6 +68,7 @@ p {
 }
 
 .btn {
+  font-size: 1.5rem;
   font-family: "Muli", sans-serif;
   font-weight: 900;
   border: 2px solid #000;
@@ -65,7 +80,7 @@ p {
   font-size: 2.3rem;
 }
 
-.portfolioHead {
+.sectionLine {
   border-bottom: 3px solid #000;
 }
 
@@ -83,8 +98,35 @@ p {
   justify-content: center;
 }
 
-/* .img {
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
-} ==== Done in JS */
+/*============= Job Dashboard =============*/
+.jobList {
+  display: flex;
+}
+
+/*============= Portfolio Dashboard =============*/
+
+.portfolioEdit .portfolioButton {
+  display: flex;
+  justify-content: space-around;
+}
+
+/*============= Portfolio / Projects =============*/
+
+.projectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects .imgBgDark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/*============= Project =============*/
+
+.titlePicture {
+  height: 200px;
+}
