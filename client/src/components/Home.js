@@ -2,22 +2,20 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class Home extends Component {
-  dashboard = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  };
-
   render() {
     return (
       <div>
         <h1>Home</h1>
-        <div className={this.dashboard}>
+        <div>
           <h2>Portfolio</h2>
-          <Link to="/portfolio">View Portfolio</Link>
+          <Link className="btn" to="/portfolio">
+            View Portfolio
+          </Link>
 
           <h2>CV</h2>
-          <Link to="/cv/all">View CVs</Link>
+          <Link className="btn" to="/cv/all">
+            View CVs
+          </Link>
         </div>
       </div>
     );

@@ -41,9 +41,9 @@ const cvSchema = new Schema({
   extra_2: String,
   extra_3: String,
   extra_4: String,
-  extra_5: String
+  extra_5: String,
 
-  //   owner: { type: Schema.Types.ObjectId, ref: "User" }
+  owner: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
 const CVModel = model("CVModel", cvSchema);

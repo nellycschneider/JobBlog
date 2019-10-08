@@ -7,9 +7,19 @@ const ProjectList = props => {
       {props.projects.map(project => {
         return (
           <>
-            <Link to={`/portfolio/dashboard/edit-project/${project._id}`} className="Link">
+            <Link
+              to={`/portfolio/dashboard/edit-project/${project._id}`}
+              className="Link"
+            >
               <div className="portfolioList">
-                <div className="imgBg" style={{ background: "#D3D3D3", height: "130px", width: "130px" }}>
+                <div
+                  className="imgBg"
+                  style={{
+                    background: "#D3D3D3",
+                    height: "130px",
+                    width: "130px"
+                  }}
+                >
                   <div
                     className="img"
                     style={{

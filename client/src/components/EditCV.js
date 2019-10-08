@@ -160,9 +160,11 @@ class EditCV extends Component {
 
   getData = () => {
     const { id } = this.props.id;
+
     axios
       .get(`/cv/${id}`)
       .then(response => {
+        //const {name, email,phone,linkedin,github,skills,exp1_org,exp2_org} = response.data
         this.setState({
           name: response.data.name,
           email: response.data.email,
@@ -230,7 +232,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="name"
-              value={this.name}
+              value={this.state.name}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -239,7 +241,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="email"
-              value={this.email}
+              value={this.state.email}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -248,7 +250,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="phone"
-              value={this.phone}
+              value={this.state.phone}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -257,7 +259,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="linkedin"
-              value={this.linkedin}
+              value={this.state.linkedin}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -266,7 +268,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="github"
-              value={this.github}
+              value={this.state.github}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -275,7 +277,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="skills"
-              value={this.skills}
+              value={this.state.skills}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -286,7 +288,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp1_org"
-              value={this.exp1_org}
+              value={this.state.exp1_org}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -295,7 +297,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp1_pos"
-              value={this.exp1_pos}
+              value={this.state.exp1_pos}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -304,7 +306,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp1_desc"
-              value={this.exp1_desc}
+              value={this.state.exp1_desc}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -313,7 +315,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp1_dur"
-              value={this.exp1_dur}
+              value={this.state.exp1_dur}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -323,7 +325,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp2_org"
-              value={this.exp1_org}
+              value={this.state.exp2_org}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -332,7 +334,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp2_pos"
-              value={this.exp2_pos}
+              value={this.state.exp2_pos}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -341,7 +343,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp2_desc"
-              value={this.exp2_desc}
+              value={this.state.exp2_desc}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -350,7 +352,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="exp2_dur"
-              value={this.exp2_dur}
+              value={this.state.exp2_dur}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -361,7 +363,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="proj1_title"
-              value={this.proj1_title}
+              value={this.state.proj1_title}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -370,7 +372,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="proj1_link"
-              value={this.proj1_link}
+              value={this.state.proj1_link}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -379,7 +381,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="proj1_desc"
-              value={this.proj1_desc}
+              value={this.state.proj1_desc}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -389,7 +391,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="proj2_title"
-              value={this.proj2_title}
+              value={this.state.proj2_title}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -398,7 +400,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="proj2_link"
-              value={this.proj2_link}
+              value={this.state.proj2_link}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -407,7 +409,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="proj2_desc"
-              value={this.proj2_desc}
+              value={this.state.proj2_desc}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -418,7 +420,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu1_school"
-              value={this.edu1_school}
+              value={this.state.edu1_school}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -427,7 +429,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu1_year"
-              value={this.edu1_year}
+              value={this.state.edu1_year}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -436,7 +438,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu1_qualification"
-              value={this.edu1_qualification}
+              value={this.state.edu1_qualification}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -445,7 +447,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu1_desc"
-              value={this.edu1_desc}
+              value={this.state.edu1_desc}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -455,7 +457,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu2_school"
-              value={this.edu2_school}
+              value={this.state.edu2_school}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -464,7 +466,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu2_year"
-              value={this.edu2_year}
+              value={this.state.edu2_year}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -473,7 +475,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu2_qualification"
-              value={this.edu2_qualification}
+              value={this.state.edu2_qualification}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -482,7 +484,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="edu2_desc"
-              value={this.edu2_desc}
+              value={this.state.edu2_desc}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -492,7 +494,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="extra_1"
-              value={this.extra_1}
+              value={this.state.extra_1}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -501,7 +503,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="extra_2"
-              value={this.extra_2}
+              value={this.state.extra_2}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -510,7 +512,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="extra_3"
-              value={this.extra_3}
+              value={this.state.extra_3}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -519,7 +521,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="extra_4"
-              value={this.extra_4}
+              value={this.state.extra_4}
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -528,7 +530,7 @@ class EditCV extends Component {
             <Form.Control
               type="text"
               name="extra_5"
-              value={this.extra_5}
+              value={this.state.extra_5}
               onChange={this.handleChange}
             />
           </Form.Group>

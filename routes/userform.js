@@ -47,7 +47,7 @@ router.post("/", (req, res) => {
     extra_4,
     extra_5
   } = req.body;
-  //   const owner = req.user._id;
+  const owner = req.user._id;
 
   CVModel.create({
     name,
@@ -89,8 +89,8 @@ router.post("/", (req, res) => {
     extra_2,
     extra_3,
     extra_4,
-    extra_5
-    // owner: owner
+    extra_5,
+    owner
   })
     .then(cv => {
       res.json(cv);
@@ -153,7 +153,8 @@ router.put("/:id", (req, res) => {
     extra_2,
     extra_3,
     extra_4,
-    extra_5
+    extra_5,
+    owner
   } = req.body;
   CVModel.findByIdAndUpdate(
     req.params.id,
@@ -197,7 +198,8 @@ router.put("/:id", (req, res) => {
       extra_2,
       extra_3,
       extra_4,
-      extra_5
+      extra_5,
+      owner
     },
     // { new: true } ensures that we are getting the updated document in the .then callback
     { new: true }
@@ -214,8 +216,9 @@ router.put("/:id", (req, res) => {
 router.get("/:id", (req, res) => {
   console.log("ROUTE CV");
   CVModel.findById(req.params.id)
+    .populate("owner")
     .then(cv => {
-      console.log(cv);
+      console.log("cv res", cv);
       if (!cv) {
         res.status(404).json(cv);
       } else {

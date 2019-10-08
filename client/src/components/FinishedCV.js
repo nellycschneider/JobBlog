@@ -48,7 +48,9 @@ export default class FinishedCV extends Component {
 
     editForm: false,
     error: null,
-    cvs: ""
+    cvs: "",
+
+    user: this.props.user
   };
 
   getData = () => {
@@ -282,17 +284,20 @@ export default class FinishedCV extends Component {
       cvs
     } = this.state;
 
+    console.log("CVs: ", cvs);
+
     const owner = cvs.owner._id;
     console.log("OWNER: ", owner);
     const currentUser = this.state.cvs.owner;
     console.log("Current User: ", currentUser);
 
     let canDelete = false;
-    if (currentUser && currentUser._id === owner) {
+    if (this.state.user._id === owner) {
       canDelete = true;
     }
-    console.log("CAN DELETE ", canDelete);
+    // console.log("CAN DELETE ", canDelete);
     // console.log("STATE CVS", this.state.cvs);
+
     return (
       <div className="card animated bounceIn">
         <div className="card-body text-center pt-5 pb-5">

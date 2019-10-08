@@ -5,13 +5,13 @@ const projectSchema = new Schema(
   {
     title: String,
     description: String,
+    owner: { type: Schema.Types.ObjectId, ref: "User" },
     content: [
       {
         imgDescription: String,
         img: String
       }
     ]
-    //owner: { type: Schema.Types.ObjectId, ref: "User" }
   },
   {
     timestamps: true
