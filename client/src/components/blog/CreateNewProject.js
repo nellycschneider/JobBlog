@@ -132,10 +132,7 @@ export default class CreateNewProject extends Component {
                 </button>
 
                 <label htmlFor="imgUpload">Upload a Picture: </label>
-                <input
-                  type="file"
-                  onChange={e => this.handleFileUpload(e, el.id)}
-                />
+                <input type="file" onChange={e => this.handleFileUpload(e, el.id)} />
 
                 <label htmlFor="description">Picture Description: </label>
                 <textarea

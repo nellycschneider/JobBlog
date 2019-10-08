@@ -65,6 +65,7 @@ router.put("/project/:id", (req, res) => {
 // DELETE portfolio/:id
 router.delete("/project/:id", (req, res) => {
   // delete the project
+  console.log("delete from router");
   Project.findByIdAndDelete(req.params.id)
     .then(project => {
       // Deletes all the documents in the Task collection where the value for the `_id` field is present in the `project.tasks` array

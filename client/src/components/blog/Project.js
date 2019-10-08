@@ -74,10 +74,7 @@ export default class ProjectDetails extends Component {
   };
 
   render() {
-    console.log(this.state.title);
-
     const content = this.state.content.map((el, i) => {
-      console.log(el);
       return (
         <div key={i}>
           <img src={el.img} alt="" />
@@ -86,11 +83,24 @@ export default class ProjectDetails extends Component {
       );
     });
 
+    const titlePicture = this.state.content[0];
+    console.log("Test: ", titlePicture);
+
     if (this.state.error) return <div>{this.state.error}</div>;
-    console.log(this.state);
     return (
-      <div>
-        <h1>Hi ich bin ein Project detail</h1>
+      <div className="project">
+        {this.state.content[0] ? (
+          <div
+            className="titlePicture"
+            style={{
+              background: `url(${this.state.content[0].img})`
+            }}
+          >
+            {" "}
+          </div>
+        ) : (
+          ""
+        )}
         <h1>{this.state.title}</h1>
         <p>{this.state.description}</p>
         {content}
@@ -98,3 +108,11 @@ export default class ProjectDetails extends Component {
     );
   }
 }
+
+/*
+
+`url(${this.state.content[0].img})`
+
+
+<img src={this.state.content[0].img} className="titlePicture" /> : ""
+*/

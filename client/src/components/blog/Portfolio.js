@@ -27,12 +27,11 @@ export default class Portfolio extends Component {
 
   render() {
     return (
-      <div>
-        <h1>The Portfolio of</h1>
-        <Link to="/portfolio/dashboard">Edit Projects</Link>
+      <div className="portfolio">
+        <Link to="/portfolio/dashboard" className="btn">
+          Dashboard
+        </Link>
         <Projects projects={this.state.projects} />
-        {/* <AddProject getData={this.getData} /> */}
-        {/* <ProjectList projects={this.state.projects} /> */}
       </div>
     );
   }

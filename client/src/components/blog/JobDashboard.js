@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProjectList = props => {
+const JobList = props => {
   return (
     <div>
       {props.projects.map(project => {
         return (
           <>
-            <Link
-              to={`/portfolio/dashboard/edit-project/${project._id}`}
-              className="Link"
-            >
+            <Link to={`/portfolio/dashboard/edit-project/${project._id}`} className="Link">
               <div className="portfolioList">
                 <div className="imgBg" style={{ background: "#D3D3D3", height: "100px", width: "100px" }}>
                   <div
@@ -38,14 +35,4 @@ const ProjectList = props => {
   );
 };
 
-export default ProjectList;
-
-/*
-
- <Link to={`/portfolio/dashboard/edit-project/${project._id}`}></Link>
-            <h3>
-              {project.title}
-              </h3>
-              </Link>
-
-*/
+export default JobList;
