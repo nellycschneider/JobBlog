@@ -108,11 +108,3 @@ export default class ProjectDetails extends Component {
     );
   }
 }
-
-/*
-
-`url(${this.state.content[0].img})`
-
-
-<img src={this.state.content[0].img} className="titlePicture" /> : ""
-*/

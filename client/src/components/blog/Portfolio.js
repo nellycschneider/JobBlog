@@ -28,6 +28,7 @@ export default class Portfolio extends Component {
   render() {
     return (
       <div className="portfolio">
+        <h1 className="head">Portfolio</h1>
         <Link to="/portfolio/dashboard" className="btn">
           Dashboard
         </Link>
