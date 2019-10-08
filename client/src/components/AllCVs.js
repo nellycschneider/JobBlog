@@ -34,7 +34,7 @@ export default class AllCVs extends Component {
           {this.state.cvs.map(cv => {
             return (
               <div key={cv._id}>
-                <Link to={`/cv/${cv._id}`}>
+                <Link to={`/cv-details/${cv._id}`}>
                   <h3>{cv.name}</h3>
                   <p>{cv.email}</p>
                 </Link>
@@ -44,9 +44,13 @@ export default class AllCVs extends Component {
         </div>
         <br />
         <form>
-          <Link to="/cv/form">Add CV</Link>
+          <Link to="/cv/form" className="btn">
+            Add CV
+          </Link>
           <br />
-          <Link to="/">Go back</Link>
+          <Link to="/" className="btn">
+            Go back
+          </Link>
         </form>
       </div>
     );

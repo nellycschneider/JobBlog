@@ -22,9 +22,6 @@ const Navbar = props => {
       <Nav.Brand>
         <Link to="/portfolio">Portfolio</Link>
       </Nav.Brand>
-      {/* <Nav.Brand>
-        <Link to="/cv/all">All CVs</Link>
-      </Nav.Brand> */}
 
       {props.user ? (
         // user is logged in, show these

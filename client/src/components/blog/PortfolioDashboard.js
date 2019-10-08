@@ -42,7 +42,7 @@ export default class Portfolio extends Component {
           </div>
           <div className="portfolioButton">
             <Link to="/portfolio/dashboard/create-new" className="btn my-3">
-              Create assign
+              Create Job
             </Link>
             <Link to="/portfolio/dashboard/create-new" className="btn my-3">
               Create Artwork

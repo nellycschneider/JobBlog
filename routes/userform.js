@@ -112,7 +112,8 @@ router.get("/all", (req, res) => {
 });
 
 // PUT /cv/:id
-router.put("/:id", (req, res) => {
+router.patch("/:id", (req, res) => {
+  console.log(req.params.id);
   const {
     name,
     email,
@@ -153,8 +154,7 @@ router.put("/:id", (req, res) => {
     extra_2,
     extra_3,
     extra_4,
-    extra_5,
-    owner
+    extra_5
   } = req.body;
   CVModel.findByIdAndUpdate(
     req.params.id,
@@ -198,8 +198,7 @@ router.put("/:id", (req, res) => {
       extra_2,
       extra_3,
       extra_4,
-      extra_5,
-      owner
+      extra_5
     },
     // { new: true } ensures that we are getting the updated document in the .then callback
     { new: true }

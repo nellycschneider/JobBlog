@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Button } from "react-bootstrap";
 import EditCV from "./EditCV";
+import { Link } from "react-router-dom";
 
 export default class FinishedCV extends Component {
   state = {
@@ -59,7 +59,7 @@ export default class FinishedCV extends Component {
       .get(`/cv/${id}`)
       .then(response => {
         // console.log("Response from AXIOS", response);
-        console.log(response.data.owner);
+        // console.log(response.data.owner);
         this.setState({
           name: response.data.name,
           email: response.data.email,
@@ -129,7 +129,7 @@ export default class FinishedCV extends Component {
     event.preventDefault();
     const id = this.props.match.params.id;
     axios
-      .put(`/cv/${id}`, {
+      .patch(`/cv/${id}`, {
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
@@ -169,10 +169,11 @@ export default class FinishedCV extends Component {
         extra_2: this.state.extra_2,
         extra_3: this.state.extra_3,
         extra_4: this.state.extra_4,
-        extra_5: this.state.extra_5,
-        cvs: this.state
+        extra_5: this.state.extra_5
+        // cvs: this.state
       })
       .then(response => {
+        // console.log("PUT response: ", response);
         this.setState({
           name: response.data.name,
           email: response.data.email,
@@ -223,13 +224,15 @@ export default class FinishedCV extends Component {
       });
   };
 
-  toggleEditForm = () => {
+  toggleEditForm = event => {
+    event.preventDefault();
     this.setState({
       editForm: !this.state.editForm
     });
   };
 
-  deleteCV = () => {
+  deleteCV = event => {
+    event.preventDefault();
     const id = this.props.match.params.id;
     axios.delete(`/cv/${id}`).then(() => {
       this.props.history.push("/cv/all");
@@ -284,8 +287,6 @@ export default class FinishedCV extends Component {
       cvs
     } = this.state;
 
-    console.log("CVs: ", cvs);
-
     const owner = cvs.owner._id;
     console.log("OWNER: ", owner);
     const currentUser = this.state.cvs.owner;
@@ -294,6 +295,11 @@ export default class FinishedCV extends Component {
     let canDelete = false;
     if (this.state.user._id === owner) {
       canDelete = true;
+    }
+
+    let canEdit = false;
+    if (this.state.user._id === owner) {
+      canEdit = true;
     }
     // console.log("CAN DELETE ", canDelete);
     // console.log("STATE CVS", this.state.cvs);
@@ -357,24 +363,27 @@ export default class FinishedCV extends Component {
           </ul>
         </div>
         <form>
-          <Button onClick={this.toggleEditForm} style={{ cursor: "pointer" }}>
-            Show Edit form
-          </Button>
-
-          {canDelete && (
-            <Button variant="danger" onClick={this.deleteCV}>
-              Delete CV
-            </Button>
+          {canEdit && (
+            <button onClick={this.toggleEditForm} className="btn">
+              Show Edit form
+            </button>
           )}
 
-          {/* <Button variant="danger" onClick={this.deleteCV}>
-            Delete CV
-          </Button> */}
+          {canDelete && (
+            <button onClick={this.deleteCV} className="btn">
+              Delete CV
+            </button>
+          )}
+
+          <Link to="/cv/all" className="btn">
+            go back
+          </Link>
         </form>
         {this.state.editForm && (
           <EditCV
             id={this.props.match.params}
             {...this.state}
+            getData={this.getData}
             // handleChange={this.handleChange}
             // handleSubmit={this.handleSubmit}
           />

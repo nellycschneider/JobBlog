@@ -36,36 +36,20 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar user={this.state.user} setUser={this.setUser} />
-        {/* <Route exact path="/projects" component={Projects} /> */}
 
         {/* if there's no logged in user, don't show the projects page */}
         <div className="container-custom">
           <Switch>
             <Route exact path="/" user={this.state.user} component={Home} />
             {/* ================BLOG Router===================== */}
+            <Route path="/portfolio/project/:id" component={Project} /> */}
             <Route
               exact
               path="/portfolio"
               user={this.state.user}
               component={Portfolio}
             />
-            <Route
-              exact
-              path="/portfolio/dashboard"
-              component={PortfolioDashboard}
-            />
-            <Route
-              path="/portfolio/dashboard/create-new"
-              component={CreateNewProject}
-            />
-            <Route
-              path="/portfolio/dashboard/edit-project/:id"
-              component={EditProject}
-            />
-            <Route path="/portfolio/project/:id" component={Project} />
-            {/* ================BLOG Router===================== */}
-
-            {/* <Route exact path="/tasks/:id" component={TaskDetails} /> */}
+            {/* ================SignUp/LogIn===================== */}
             <Route
               exact
               path="/signup"
@@ -76,21 +60,15 @@ class App extends React.Component {
               path="/login"
               render={props => <Login setUser={this.setUser} {...props} />}
             />
-            <Route
-              exact
-              path="/cv/form"
-              render={props => <UserForm setUser={this.setUser} {...props} />}
-            />
-
+            {/* ================CV Router===================== */}
             <Route
               exact
               path="/cv/all"
               render={props => <AllCVs setUser={this.setUser} {...props} />}
             />
-
             <Route
               exact
-              path="/cv/:id"
+              path="/cv-details/:id"
               render={props => (
                 <FinishedCV
                   setUser={this.setUser}
@@ -99,12 +77,41 @@ class App extends React.Component {
                 />
               )}
             />
-
-            {/* <Route
-            exact
-            path="/cv/edit/:id"
-            render={props => <EditCV setUser={this.setUser} {...props} />}
-          /> */}
+            {/* only logged in users */}
+            {this.state.user ? (
+              <>
+                <Switch>
+                  {/* ================BLOG Router===================== */}
+                  <Route
+                    exact
+                    path="/portfolio/dashboard"
+                    component={PortfolioDashboard}
+                  />
+                  <Route
+                    exact
+                    path="/portfolio/dashboard/create-new"
+                    component={CreateNewProject}
+                  />
+                  <Route
+                    exact
+                    path="/portfolio/dashboard/edit-project/:id"
+                    component={EditProject}
+                  />
+                  {/* ================CV Router===================== */}
+                  <Route
+                    exact
+                    path="/cv/form"
+                    render={props => (
+                      <UserForm setUser={this.setUser} {...props} />
+                    )}
+                  />
+                </Switch>
+              </>
+            ) : (
+              <>
+                <h2>Please log in or sign up to access this page.</h2>
+              </>
+            )}
           </Switch>
         </div>
       </div>

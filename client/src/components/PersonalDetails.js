@@ -9,10 +9,10 @@ class PersonalDetails extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <div className="card animated fadeInLeft">
+      <div>
         <div className="card-body">
           <h3 className="card-title">Personal Info</h3>
-          <hr />
+          <hr style={{ borderBottom: "1px solid black" }} />
         </div>
         <form onSubmit={this.continue}>
           <div className="row col-lg-10 mx-auto">
@@ -90,7 +90,7 @@ class PersonalDetails extends Component {
           </div>
           <br />
           <div className="container text-center">
-            <button type="submit" className="btn btn-info">
+            <button type="submit" className="btn">
               Next<i className="fas fa-angle-right ml-1"></i>
             </button>
           </div>

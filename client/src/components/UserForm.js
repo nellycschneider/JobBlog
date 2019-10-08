@@ -3,7 +3,6 @@ import PersonalDetails from "./PersonalDetails";
 import Experience from "./Experience";
 import Project from "./Project";
 import Education from "./Education";
-// import FinishedCV from "./FinishedCV";
 import Success from "./Success";
 import Extras from "./Extras";
 
@@ -77,9 +76,6 @@ class UserForm extends React.Component {
     });
   };
 
-  //   handleChange = ({ target: { value, name } }) =>
-  //     this.setState({ [name]: value });
-
   handleChange = event => {
     const { name, value } = event.target;
 
@@ -97,7 +93,7 @@ class UserForm extends React.Component {
     switch (step) {
       case 1:
         return (
-          <div className="App pt-5 mt-5">
+          <div className="App pt-5 mt-5 form-card">
             <div className="container col-lg-8 mx-auto text-center">
               <PersonalDetails
                 values={this.state}
