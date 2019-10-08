@@ -34,20 +34,15 @@ export default class CreateNewProject extends Component {
   };
 
   handleFileUpload = (e, id) => {
-    // const { name, value } = e.target;
     console.log("The file to be uploaded is: ", e.target.files[0]);
 
     const uploadData = new FormData();
-    // imageUrl => this name has to be the same as in the model since we pass
-    // req.body to .create() method when creating a new thing in '/api/things/create' POST route
     uploadData.append("imageUrl", e.target.files[0]);
 
     service
       .handleUpload(uploadData)
       .then(response => {
         console.log(response);
-        // console.log('response is: ', response);
-        // after the console.log we can see that response carries 'secure_url' which we can use to update the state
         let updatedContent = this.state.content.map(el => {
           if (el.id === id) {
             return {
@@ -69,10 +64,7 @@ export default class CreateNewProject extends Component {
     event.preventDefault();
     this.setState(
       {
-        content: [
-          ...this.state.content,
-          { id: newId, imgDescription: "", img: "" }
-        ]
+        content: [...this.state.content, { id: newId, imgDescription: "", img: "" }]
       },
       () => console.log(this.state.content)
     );
@@ -81,9 +73,7 @@ export default class CreateNewProject extends Component {
   handleClickDelete = deletedContent => {
     // event.preventDefault();
     // const filtContent = this.state.content.map(x => x.id !== id);
-    const filtContent = this.state.content.filter(
-      content => content.id !== deletedContent.id
-    );
+    const filtContent = this.state.content.filter(content => content.id !== deletedContent.id);
     console.log(filtContent);
     this.setState({
       content: filtContent

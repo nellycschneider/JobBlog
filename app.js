@@ -85,14 +85,11 @@ app.use("/", index);
 const portfolio = require("./routes/portfolio");
 app.use("/portfolio", portfolio);
 
+const job = require("./routes/job");
+app.use("/job", job);
+
 const imgUpload = require("./routes/imgUpload");
 app.use("/imgUpload", imgUpload);
-
-// const projectRoutes = require("./routes/project");
-// app.use("/api/projects", projectRoutes);
-
-// const taskRoutes = require("./routes/task");
-// app.use("/api/tasks", taskRoutes);
 
 const authRoutes = require("./routes/auth");
 app.use("/api/auth", authRoutes);

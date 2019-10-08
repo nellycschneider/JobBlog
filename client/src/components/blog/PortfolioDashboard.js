@@ -27,13 +27,16 @@ export default class Portfolio extends Component {
   };
 
   render() {
+    console.log(this.state.jobs);
     return (
       <div>
         <div className="newJob">
           <div className="sectionLine my-3">
             <h3 className="sectionHead">New Jobs</h3>
           </div>
-          <JobDashboard projects={this.state.projects} />
+          <div className="jobList">
+            <JobDashboard />
+          </div>
         </div>
 
         <div className="portfolioEdit">

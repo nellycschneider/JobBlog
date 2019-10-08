@@ -1,9 +1,13 @@
 /* 
 font-family: 'Space Mono', monospace;
 font-family: 'Muli', sans-serif; 
+font-family: 'IBM Plex Mono', monospace;
+font-family: 'Fira Code', monospace;
 */
 
 @import url("https://fonts.googleapis.com/css?family=Muli:400,700,900|Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,300,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
 
 * {
   margin: 0;
@@ -22,8 +26,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Muli", sans-serif;
-  font-weight: 700;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 100;
 }
 
 p {
@@ -41,20 +45,36 @@ p {
   margin: 40px 0;
 }
 
+.head {
+  text-align: center;
+  margin: 30px auto;
+  width: 200px;
+  font-size: 3rem;
+  border-bottom: 1px solid currentColor;
+  line-height: 1.5;
+}
+
 .content {
   text-align: left;
 }
 
 .date {
+  margin: 0;
+  font-family: "Fira Code", monospace;
+  font-size: 1.2rem;
   color: blue;
 }
 
 .type {
   color: #979797;
+  margin: 0;
 }
 
 .title {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
   font-size: 1.5rem;
+  margin: 0;
 }
 
 .Link {
@@ -68,6 +88,7 @@ p {
 }
 
 .btn {
+  margin-bottom: 30px;
   font-size: 1.5rem;
   font-family: "Muli", sans-serif;
   font-weight: 900;
@@ -83,7 +104,8 @@ p {
 }
 
 .sectionLine {
-  border-bottom: 3px solid #000;
+  border-bottom: 1px solid currentColor;
+  line-height: 1.5;
 }
 
 /*============= Project Dashboard =============*/
@@ -103,6 +125,7 @@ p {
 /*============= Job Dashboard =============*/
 .jobList {
   display: flex;
+  overflow-x: scroll;
 }
 
 /*============= Portfolio Dashboard =============*/
@@ -120,11 +143,14 @@ p {
   align-items: center;
 }
 
+.projects {
+  margin-bottom: 10px;
+}
+
 .projects .imgBgDark {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
 }
 
 /*============= Project =============*/
@@ -175,4 +201,23 @@ p {
 
 .form-card input {
   font-size: 1.5rem;
+}
+/*============= Jobs =============*/
+
+.jobs {
+  margin: 20px 10px 20px 0;
+}
+
+.jobs .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jobs .center p {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+  background: blue;
+  padding: 10px 20px;
 }
