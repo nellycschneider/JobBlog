@@ -15,7 +15,7 @@ const cors = require("cors");
 require("./configs/passport");
 
 mongoose
-  .connect("mongodb://localhost/job-blog", {
+  .connect("process.env.MONGODB_URI || mongodb://localhost/job-blog", {
     useNewUrlParser: true
   })
   .then(x => {
