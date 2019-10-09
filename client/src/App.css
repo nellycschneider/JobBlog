@@ -33,6 +33,7 @@ h4 {
 
 p {
   font-family: "Muli", sans-serif;
+  font-size: 1.5rem;
 }
 
 .navItem {
@@ -131,7 +132,7 @@ p {
 
 /* ============================================= */
 /* ============================================= */
-/* Forms */
+/* Login Sign in Forms */
 /* ============================================= */
 /* ============================================= */
 
@@ -152,7 +153,7 @@ p {
 
 input {
   font-family: "Muli", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   height: 50px;
   padding: 0px 15px 0px 15px;
 
@@ -183,10 +184,10 @@ input:hover {
   margin: -5px 0px 0px 0px;
   background: none;
 
-  width: 50%;
+  width: 100%;
 
   font-family: "Muli", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #000;
 
   outline: none;
@@ -203,6 +204,67 @@ input:hover {
 .btn-form:hover {
   background: #000;
   color: #fff;
+}
+
+.loginSignup {
+  margin: 10px 0;
+}
+
+/* ============================================= */
+/* ============================================= */
+/* CV Forms */
+/* ============================================= */
+/* ============================================= */
+
+.form-card input,
+.form-fragment input {
+  font-family: "Muli", sans-serif;
+  font-size: 1.5rem;
+  height: 35px;
+  padding: 0px 15px 0px 15px;
+
+  background: transparent;
+  outline: none;
+  color: #000;
+
+  border: solid 1px #000;
+  border-radius: 0;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+.form-card input:hover,
+.form-fragment input:hover {
+  background: #000;
+  color: #fff;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Muli", sans-serif;
+}
+
+.edit-form h2 {
+  font-size: 2.5rem;
+}
+
+.form-fragment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+}
+
+.form-fragment input {
+  width: 40vw;
+  margin: 10px;
 }
 
 /* ============================================= */
@@ -224,6 +286,38 @@ input:hover {
 .navBar ul li {
   margin-left: 10px;
   list-style: none;
+}
+
+/* ============================================= */
+/* ============================================= */
+/* CV Layout */
+/* ============================================= */
+/* ============================================= */
+
+.contactForm p {
+  font-size: 1.5rem;
+}
+
+.contactForm h1 {
+  font-size: 5rem;
+}
+
+.contactForm .contact {
+  display: flex;
+  align-items: center;
+}
+
+.contactForm .contact-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactForm .icons {
+  display: flex;
+}
+
+.contactForm i {
+  margin-right: 5px;
 }
 
 /*============= Project Dashboard =============*/
@@ -255,13 +349,6 @@ input:hover {
 
 /*============= Portfolio / Projects =============*/
 
-/* .portfolio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
-
 .projectPosition {
   display: flex;
   justify-content: center;
@@ -289,49 +376,6 @@ input:hover {
   height: 200px;
 }
 
-/*============= Editform CV =============*/
-
-.edit-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Muli", sans-serif;
-}
-
-.edit-form h2 {
-  font-size: 2.5rem;
-}
-
-.form-fragment {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
-}
-
-.form-fragment input {
-  padding: 5px;
-  font-size: 1.5rem;
-  width: 40vw;
-  margin: 10px;
-  color: grey;
-}
-
-/*============= CV FORM =============*/
-
-.form-card {
-  font-family: "Muli", sans-serif;
-}
-
-.form-card label {
-  font-size: 1.5rem;
-}
-
-.form-card input {
-  font-size: 1.5rem;
-}
 /*============= Jobs =============*/
 
 .jobs {
@@ -358,10 +402,41 @@ Mobile
 
 ====================================================== */
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media only screen and (max-width: 990px) {
+  /* ============================================= */
+  /* ============================================= */
+  /* Login Signin CV Form */
+  /* ============================================= */
+  /* ============================================= */
+
+  /* CV */
+  .form-card input {
+    margin-bottom: 5px;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 10px;
+  }
+
+  .container-custom {
+    padding: 0 20px;
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+
+  /* ============================================= */
+  /* ============================================= */
+  /* NavBar */
+  /* ============================================= */
+  /* ============================================= */
 
   .navBarPosition {
     position: absolute;
@@ -381,5 +456,23 @@ Mobile
   .navBarPosition .navBar ul li {
     margin-right: 10px;
     list-style: none;
+  }
+
+  /* ============================================= */
+  /* ============================================= */
+  /* Login Signin CV Form */
+  /* ============================================= */
+  /* ============================================= */
+
+  /* Login/Signin */
+
+  .form {
+    width: 95%;
+  }
+
+  /* CV */
+
+  .form-card input {
+    margin-bottom: 10px;
   }
 }

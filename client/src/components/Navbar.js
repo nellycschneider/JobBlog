@@ -10,6 +10,7 @@ const handleLogout = props => {
 };
 
 const Navbar = props => {
+  console.log("Hallo ------>", props);
   return (
     <div className="navBarPosition">
       <nav className="navBar">

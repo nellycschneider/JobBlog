@@ -305,22 +305,37 @@ export default class FinishedCV extends Component {
     // console.log("STATE CVS", this.state.cvs);
 
     return (
-      <div className="card animated bounceIn">
+      <div>
         <div className="card-body text-center pt-5 pb-5">
-          <h1>{name}</h1>
-          <h5>Email:</h5>
-          <p>{email}</p>
-          <h5>Contact:</h5>
-          <p>{phone}</p>
-          <h5>LinkedIn:</h5>
-          <p>
-            <a href={linkedin}>{linkedin}</a>
-          </p>
-          <h5>Github:</h5>
-          <p>
-            <a href={github}>{github}</a>
-          </p>
-          <h3>Skills:</h3>
+          {/* Contact */}
+          <div className="contactForm">
+            <h1 className="contactName">{name}</h1>
+            <div className="contact">
+              <i class="far fa-envelope fa-2x"></i>
+              <p>
+                <strong>{email}</strong>
+              </p>
+            </div>
+
+            <div className="contact-column">
+              <div className="contact">
+                <i class="fas fa-phone fa-2x"></i>
+                <p>
+                  <strong>{phone}</strong>
+                </p>
+              </div>
+              <div className="icons">
+                <a href={linkedin}>
+                  <i class="fab fa-linkedin-in fa-2x"></i>
+                </a>
+                <a href={github}>
+                  <i class="fab fa-github fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* <h3>Skills:</h3>
           <p>{skills}</p>
           <h3>Experience:</h3>
           <h5>
@@ -360,7 +375,7 @@ export default class FinishedCV extends Component {
             <li>{extra_3}</li>
             <li>{extra_4}</li>
             <li>{extra_5}</li>
-          </ul>
+          </ul> */}
         </div>
         <form>
           {canEdit && (
