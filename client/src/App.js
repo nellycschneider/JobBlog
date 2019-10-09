@@ -46,7 +46,7 @@ class App extends React.Component {
             {/* ================BLOG Router===================== */}
             <Route path="/portfolio/project/:id" component={Project} /> */}
             <Route exact path="/portfolio/user/:username" render={props => <Portfolio user={this.state.user} {...props} />} />
-            <Route exact path="/portfolio" render={props => <Portfolio user={this.state.user} {...props} />} />
+            {/* <Route exact path="/portfolio/" render={props => <Portfolio user={this.state.user} {...props} />} /> */}
             <Route exact path="/job" component={JobDashboard} />
             <Route exact path="/job/create-new" component={CreateJob} />
             <Route path="/job/:id" component={JobEdit} /> */}

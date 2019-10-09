@@ -21,7 +21,7 @@ const Navbar = props => {
           </li>
           <li>
             {" "}
-            <Link className="navItem portfolioNav" to="/portfolio">
+            <Link className="navItem portfolioNav" to={`/portfolio/user/${props.username}`}>
               Portfolio
             </Link>
           </li>
