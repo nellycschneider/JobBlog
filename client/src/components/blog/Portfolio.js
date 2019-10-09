@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Projects from "./Projects";
 import axios from "axios";
 
@@ -14,8 +14,9 @@ export default class Portfolio extends Component {
 
   getData = () => {
     axios
-      .get("/portfolio")
+      .get(`/portfolio/user/${this.props.user._id}`)
       .then(response => {
+        console.log(this.state);
         this.setState({
           projects: response.data
         });

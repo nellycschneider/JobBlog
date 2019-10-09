@@ -9,7 +9,8 @@ export default class CreateNewProject extends Component {
   state = {
     title: "",
     description: "",
-    content: []
+    content: [],
+    owner: ""
   };
 
   handleSubmit = event => {
@@ -19,13 +20,15 @@ export default class CreateNewProject extends Component {
       .post("/portfolio", {
         title: this.state.title,
         description: this.state.description,
-        content: this.state.content
+        content: this.state.content,
+        owner: this.props.user._id
       })
       .then(() => {
         this.setState({
           title: "",
           description: "",
-          content: []
+          content: [],
+          owner: this.props.user._id
         });
       })
       .catch(err => {

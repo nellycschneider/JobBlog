@@ -9,12 +9,14 @@ router.post("/", (req, res) => {
   const description = req.body.description;
   const content = req.body.content;
   const updatedAt = req.body.updatedAt;
+  const owner = req.body.owner;
   console.log(req.body);
 
   Project.create({
     title,
     description,
     content,
+    owner,
     updatedAt
   })
     .then(project => {
@@ -30,6 +32,19 @@ router.get("/", (req, res) => {
   Project.find()
     .then(project => {
       res.json(project);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+//GET uer portfolio
+router.get("/user/:id", (req, res) => {
+  const id = req.params.id;
+  Project.find({ owner: id })
+    .then(project => {
+      console.log(project);
+      res.status(200).json(project);
     })
     .catch(err => {
       res.json(err);

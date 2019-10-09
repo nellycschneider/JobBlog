@@ -45,7 +45,7 @@ class App extends React.Component {
             <Route exact path="/signup" render={props => <Signup setUser={this.setUser} {...props} />} />
             {/* ================BLOG Router===================== */}
             <Route path="/portfolio/project/:id" component={Project} /> */}
-            <Route exact path="/portfolio" user={this.state.user} component={Portfolio} />
+            <Route exact path="/portfolio" render={() => <Portfolio user={this.state.user} />} />
             <Route exact path="/job" component={JobDashboard} />
             <Route exact path="/job/create-new" component={CreateJob} />
             <Route path="/job/:id" component={JobEdit} /> */}
@@ -59,7 +59,7 @@ class App extends React.Component {
                 <Switch>
                   {/* ================BLOG Router===================== */}
                   <Route exact path="/portfolio/dashboard" component={PortfolioDashboard} />
-                  <Route exact path="/portfolio/dashboard/create-new" component={CreateNewProject} />
+                  <Route exact path="/portfolio/dashboard/create-new" render={() => <CreateNewProject user={this.state.user} />} />
                   <Route exact path="/portfolio/dashboard/edit-project/:id" component={EditProject} />
                   {/* ================CV Router===================== */}
                   <Route exact path="/cv/form" render={props => <UserForm setUser={this.setUser} {...props} />} />
