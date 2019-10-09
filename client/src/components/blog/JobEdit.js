@@ -1,30 +1,44 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class CreateNewJob extends Component {
+export default class JobEdit extends Component {
   state = {
-    title: "",
-    jobDescription: "",
-    type: "",
-    link: ""
+    jobs: []
+  };
+
+  componentDidMount = () => {
+    this.getJobs();
+  };
+
+  getJobs = () => {
+    axios
+      .get("/job")
+      .then(response => {
+        this.setState({
+          jobs: response.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-
+    const id = this.props.match.params.id;
     axios
-      .post("/job", {
+      .put(`/job/${id}`, {
         title: this.state.title,
         jobDescription: this.state.jobDescription,
-        type: this.state.type,
-        link: this.state.link
+        link: this.state.link,
+        type: this.state.type
       })
-      .then(() => {
+      .then(response => {
         this.setState({
-          title: "",
-          jobDescription: "",
-          type: "",
-          link: ""
+          title: response.data.title,
+          jobDescription: response.data.jobDescription,
+          link: response.data.link,
+          type: response.data.type
         });
       })
       .catch(err => {
@@ -39,13 +53,18 @@ export default class CreateNewJob extends Component {
     });
   };
 
-  handleChangeTwo(event) {
-    this.setState({ value: event.target.type });
-  }
+  deleteProject = () => {
+    const id = this.props.match.params.id;
+    console.log(id);
+    axios.delete(`/portfolio/project/${id}`).then(() => {
+      this.props.history.push("/portfolio/dashboard");
+    });
+  };
 
   render() {
     return (
       <div>
+        <h1>Hi ich bin ein Job</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Job Title: </label>
