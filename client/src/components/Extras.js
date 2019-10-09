@@ -21,10 +21,10 @@ class Extras extends Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <div className="card animated fadeInLeft">
+      <div>
         <div className="card-body">
           <h3 className="card-title">Miscellaneous</h3>
-          <hr />
+          <hr style={{ borderBottom: "1px solid black" }} />
         </div>
         <form onSubmit={this.formSubmit}>
           <div className="row col-lg-10 mx-auto">
@@ -95,11 +95,11 @@ class Extras extends Component {
           </div>
           <br />
           <div className="container text-center">
-            <button type="button" className="btn btn-info" onClick={this.back}>
+            <button type="button" className="btn" onClick={this.back}>
               <i className="fas fa-angle-left mr-1"></i>Back
             </button>
-            <button type="submit" className="btn btn-info">
-              Finished<i className="fas fa-download ml-1"></i>
+            <button type="submit" className="btn">
+              Finished
             </button>
           </div>
           <br />

@@ -107,7 +107,7 @@ class UserForm extends React.Component {
 
       case 2:
         return (
-          <div className="App pt-5 mt-5">
+          <div className="App pt-5 mt-5 form-card">
             <div className="container col-lg-8 mx-auto text-center">
               <Experience
                 values={this.state}
@@ -122,7 +122,7 @@ class UserForm extends React.Component {
 
       case 3:
         return (
-          <div className="App pt-5 mt-5">
+          <div className="App pt-5 mt-5 form-card">
             <div className="container col-lg-8 mx-auto text-center">
               <Project
                 values={this.state}
@@ -137,7 +137,7 @@ class UserForm extends React.Component {
 
       case 4:
         return (
-          <div className="App pt-5 mt-5">
+          <div className="App pt-5 mt-5 form-card">
             <div className="container col-lg-8 mx-auto text-center">
               <Education
                 values={this.state}
@@ -152,7 +152,7 @@ class UserForm extends React.Component {
 
       case 5:
         return (
-          <div className="App pt-5 mt-5">
+          <div className="App pt-5 mt-5 form-card">
             <div className="container col-lg-8 mx-auto text-center">
               <Extras
                 values={this.state}

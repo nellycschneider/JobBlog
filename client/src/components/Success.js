@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Success extends Component {
   render() {
     console.log("SUCCESS DATA: ", this.props.values);
 
     return (
-      <div className="card animated bounceIn">
+      <div>
         <div className="card-body text-center pt-5 pb-5">
           <h1>{this.props.values.name}</h1>
           <h5>Email:</h5>
@@ -68,6 +69,9 @@ export default class Success extends Component {
             <li>{this.props.values.extra_5}</li>
           </ul>
         </div>
+        <Link className="btn" to="/cv/all">
+          go to CVs
+        </Link>
       </div>
     );
   }
