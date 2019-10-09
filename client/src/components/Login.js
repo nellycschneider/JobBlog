@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+// import { Form, Button, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { login } from "../services/api";
 
 export default class Login extends Component {
@@ -30,8 +31,6 @@ export default class Login extends Component {
           password: ""
         });
       } else {
-        // successfully logged in
-        // update the state for the parent component
         this.props.setUser(data);
         this.props.history.push("/portfolio");
       }
@@ -42,19 +41,49 @@ export default class Login extends Component {
     return (
       <>
         <h2>Login</h2>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group>
-            <Form.Label htmlFor="username">Username: </Form.Label>
-            <Form.Control type="text" name="username" value={this.state.username} onChange={this.handleChange} id="username" />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label htmlFor="password">Password: </Form.Label>
-            <Form.Control type="password" name="password" value={this.state.password} onChange={this.handleChange} id="password" />
-          </Form.Group>
-          {this.state.message && <Alert variant="danger">{this.state.message}</Alert>}
-          <Button type="submit">Login</Button>
-        </Form>
+        <div className="form">
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" name="username" value={this.state.username} onChange={this.handleChange} id="username" placeholder="NAME" />
+            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} id="password" placeholder="PASSWORD" />
+            <div className="buttons">
+              <button type="submit" className="btn-form">
+                LOGIN
+              </button>
+              <Link to="/signup" className="btn-form text-center">
+                SIGNIN
+              </Link>
+            </div>
+          </form>
+        </div>
       </>
     );
   }
 }
+
+/*
+
+ <form id="form" class="topBefore">
+            
+          </form>
+		
+		  <input id="name" type="text" placeholder="NAME">
+		  <input id="email" type="text" placeholder="E-MAIL">
+		  <textarea id="message" type="text" placeholder="MESSAGE"></textarea>
+  <input id="submit" type="submit" value="GO!">
+  
+
+
+<Form onSubmit={this.handleSubmit}>
+            <Form.Group>
+              <Form.Label htmlFor="username">Username: </Form.Label>
+              <Form.Control type="text" name="username" value={this.state.username} onChange={this.handleChange} id="username" />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="password">Password: </Form.Label>
+              <Form.Control type="password" name="password" value={this.state.password} onChange={this.handleChange} id="password" />
+            </Form.Group>
+            {this.state.message && <Alert variant="danger">{this.state.message}</Alert>}
+            <Button type="submit">Login</Button>
+          </Form>
+
+*/

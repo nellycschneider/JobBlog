@@ -11,7 +11,67 @@ const handleLogout = props => {
 
 const Navbar = props => {
   return (
-    <Nav className="nav justify-content-end" bg="dark">
+    <div className="navBarPosition">
+      <nav className="navBar">
+        <ul>
+          <li>
+            <Link className="navItem home" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            {" "}
+            <Link className="navItem portfolioNav" to="/portfolio">
+              Portfolio
+            </Link>
+          </li>
+
+          {props.user ? (
+            // user is logged in, show these
+            <>
+              <li>
+                <Link to="/portfolio/dashboard" className="btn">
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link className="navItem allCv" to="/cv/all">
+                  All CVs
+                </Link>
+              </li>
+              <li>
+                <Link className="navItem" to="/" onClick={() => handleLogout(props)}>
+                  Logout
+                </Link>
+              </li>
+            </>
+          ) : (
+            // else show these
+            <>
+              <li>
+                <Link className="navItem" to="/signup">
+                  Signup
+                </Link>
+              </li>
+              <li>
+                <Link className="navItem" to="/login">
+                  Login
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
+    </div>
+  );
+};
+
+export default Navbar;
+
+/*
+
+
+<Nav className="nav justify-content-end navBar" bg="dark">
       {props.user && <Nav.Brand>Welcome, {props.user.username}</Nav.Brand>}
       <Nav.Brand>
         <Link to="/">Home</Link>
@@ -47,7 +107,6 @@ const Navbar = props => {
         </>
       )}
     </Nav>
-  );
-};
 
-export default Navbar;
+
+*/

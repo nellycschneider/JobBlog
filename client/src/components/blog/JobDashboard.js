@@ -27,10 +27,11 @@ export default class JobDashboard extends Component {
   render() {
     console.log(this.state.jobs);
     const jobList = this.state.jobs.map(el => {
+      console.log(el.link);
       return (
         <div className="jobs">
           <div className="imgBgDark center" style={{ background: "#000", height: "200px", width: "200px" }}>
-            <p className="type">UI/UX</p>
+            <p className="type">{el.type}</p>
           </div>
           <div className="contentJob">
             <p className="date">01-03-2019</p>

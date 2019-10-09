@@ -10,14 +10,13 @@ import EditProject from "./components/blog/EditProject";
 import CreateNewProject from "./components/blog/CreateNewProject";
 import Project from "./components/blog/Project";
 import CreateJob from "./components/blog/CreateNewJob";
+import JobEdit from "./components/blog/JobEdit";
 //================Blog=====================
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import FinishedCV from "./components/FinishedCV";
 import AllCVs from "./components/AllCVs";
 import UserForm from "./components/UserForm";
-
-import Home from "./components/Home";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -42,7 +41,8 @@ class App extends React.Component {
         {/* if there's no logged in user, don't show the projects page */}
         <div className="container-custom">
           <Switch>
-            <Route exact path="/" user={this.state.user} component={Home} />
+            <Route exact path="/" render={props => <Login setUser={this.setUser} {...props} />} />
+            <Route exact path="/signup" render={props => <Signup setUser={this.setUser} {...props} />} />
             {/* ================BLOG Router===================== */}
             <Route path="/portfolio/project/:id" component={Project} /> */}
             <Route
@@ -54,6 +54,7 @@ class App extends React.Component {
             {/* ================JOB ROUTES===================== */}
             <Route exact path="/job" component={JobDashboard} />
             <Route exact path="/job/create-new" component={CreateJob} />
+            <Route path="/job/:id" component={JobEdit} /> */}
             {/* ================SignUp/LogIn===================== */}
             <Route
               exact

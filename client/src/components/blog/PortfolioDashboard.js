@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import ProjectDashboard from "./ProjectDashboard";
 import JobDashboard from "./JobDashboard";
 import axios from "axios";
+import JobEdit from "./JobEdit";
+import AllCVs from "../AllCVs";
 
 export default class Portfolio extends Component {
   state = {
@@ -45,13 +47,34 @@ export default class Portfolio extends Component {
           </div>
           <div className="portfolioButton">
             <Link to="/portfolio/dashboard/create-new" className="btn my-3">
-              Create Job
-            </Link>
-            <Link to="/portfolio/dashboard/create-new" className="btn my-3">
               Create Artwork
             </Link>
           </div>
           <ProjectDashboard projects={this.state.projects} />
+        </div>
+
+        <div className="jobEdit">
+          <div className="sectionLine my-3">
+            <h3 className="sectionHead">Created Jobs</h3>
+          </div>
+          <div className="portfolioButton">
+            <Link to="/job/create-new" className="btn my-3">
+              Create Job
+            </Link>
+            <JobEdit />
+          </div>
+        </div>
+
+        <div className="cvEdit">
+          <div className="sectionLine my-3">
+            <h3 className="sectionHead">All CVs</h3>
+          </div>
+          <div className="portfolioButton">
+            <Link to="/cv/form" className="btn my-3">
+              Create CV
+            </Link>
+            <AllCVs />
+          </div>
         </div>
       </div>
     );

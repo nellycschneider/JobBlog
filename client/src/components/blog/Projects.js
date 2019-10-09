@@ -6,15 +6,15 @@ const ProjecstList = props => {
     return (
       <Link to={`/portfolio/project/${project._id}`}>
         <div className="projects">
-          <div className="imgBgDark" style={{ background: "#000", height: "200px", width: "200px" }}>
+          <div className="imgBgDark" style={{ background: "#000", height: "250px", width: "250px" }}>
             <div
               className="img"
               style={{
                 background: `url(${project.content[0].img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "130px",
-                width: "130px"
+                height: "180px",
+                width: "180px"
               }}
             ></div>
           </div>
@@ -28,7 +28,11 @@ const ProjecstList = props => {
     );
   });
 
-  return <div className="projectContainer">{project}</div>;
+  return (
+    <div className="projectPosition">
+      <div className="projectWrap">{project}</div>
+    </div>
+  );
 };
 
 export default ProjecstList;

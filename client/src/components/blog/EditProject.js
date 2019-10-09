@@ -58,8 +58,6 @@ export default class EditProject extends Component {
 
   handleChange = event => {
     const { name, value } = event.target;
-    console.log(event.target);
-
     this.setState({
       [name]: value
     });
@@ -131,7 +129,6 @@ export default class EditProject extends Component {
   render() {
     return (
       <div>
-        <h1>Hi i am a project edit</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Project Title: </label>
