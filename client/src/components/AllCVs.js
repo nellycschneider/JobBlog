@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-// import CVDetail from "./CVDetail";
-
 export default class AllCVs extends Component {
   state = {
     cvs: []
   };
 
   getAllCVs = () => {
-    console.log("Haaaaaalo-------->", this);
     axios
       .get(`/cv/user/${this.props.user._id}`)
       .then(responseFromApi => {
