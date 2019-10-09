@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-// import CVDetail from "./CVDetail";
-
 export default class AllCVs extends Component {
   state = {
     cvs: []
@@ -11,7 +9,7 @@ export default class AllCVs extends Component {
 
   getAllCVs = () => {
     axios
-      .get("/cv/all")
+      .get(`/cv/user/${this.props.user._id}`)
       .then(responseFromApi => {
         this.setState({
           cvs: responseFromApi.data
@@ -22,9 +20,10 @@ export default class AllCVs extends Component {
       });
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
+    console.log("USER CV", this.props);
     this.getAllCVs();
-  }
+  };
 
   render() {
     return (

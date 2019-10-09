@@ -74,7 +74,7 @@ export default class Portfolio extends Component {
             <Link to="/cv/form" className="btn my-3">
               Create CV
             </Link>
-            <AllCVs />
+            <AllCVs user={this.props.user} />
           </div>
         </div>
       </div>

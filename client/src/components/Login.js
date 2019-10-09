@@ -32,7 +32,7 @@ export default class Login extends Component {
         });
       } else {
         this.props.setUser(data);
-        this.props.history.push("/portfolio");
+        this.props.history.push("/portfolio/dashboard");
       }
     });
   };
