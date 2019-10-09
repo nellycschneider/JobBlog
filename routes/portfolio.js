@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Project = require("../models/PortfolioProject");
+const User = require("../models/User");
 
 // POST /portfolio
 // create a new `portfolio` resource
@@ -45,6 +46,22 @@ router.get("/user/:id", (req, res) => {
     .then(project => {
       console.log(project);
       res.status(200).json(project);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+router.get("/username/:username", (req, res) => {
+  console.log("HERE");
+  const username = req.params.username;
+  User.findOne({ username: username })
+    .then(user => {
+      Project.find({ owner: user._id }).then(project => {
+        console.log("PROJECTS ---->", project);
+        res.json(project);
+      });
+      // res.status(200).json(user);
     })
     .catch(err => {
       res.json(err);

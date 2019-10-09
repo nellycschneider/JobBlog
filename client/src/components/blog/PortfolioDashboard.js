@@ -12,12 +12,13 @@ export default class Portfolio extends Component {
   };
 
   componentDidMount = () => {
+    console.log("THIS IS DASHBOARD");
     this.getData();
   };
 
   getData = () => {
     axios
-      .get("/portfolio")
+      .get(`/portfolio/user/${this.props.user._id}`)
       .then(response => {
         this.setState({
           projects: response.data
@@ -61,7 +62,7 @@ export default class Portfolio extends Component {
             <Link to="/job/create-new" className="btn my-3">
               Create Job
             </Link>
-            <JobEdit />
+            {/* <JobEdit /> */}
           </div>
         </div>
 

@@ -2,31 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProjecstList = props => {
-  const project = props.projects.map(project => {
-    return (
-      <Link to={`/portfolio/project/${project._id}`}>
-        <div className="projects">
-          <div className="imgBgDark" style={{ background: "#000", height: "250px", width: "250px" }}>
-            <div
-              className="img"
-              style={{
-                background: `url(${project.content[0].img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "180px",
-                width: "180px"
-              }}
-            ></div>
+  console.log(props);
+  const project =
+    props &&
+    props.projects.map(project => {
+      return (
+        <Link to={`/portfolio/project/${project._id}`}>
+          <div className="projects">
+            <div className="imgBgDark" style={{ background: "#000", height: "250px", width: "250px" }}>
+              <div
+                className="img"
+                style={{
+                  background: `url(${project.content[0].img})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  height: "180px",
+                  width: "180px"
+                }}
+              ></div>
+            </div>
+            <div className="contentProject">
+              <p className="date">01-03-2019</p>
+              <h4 className="title">{project.title}</h4>
+              <p className="type">UI/UX</p>
+            </div>
           </div>
-          <div className="contentProject">
-            <p className="date">01-03-2019</p>
-            <h4 className="title">{project.title}</h4>
-            <p className="type">UI/UX</p>
-          </div>
-        </div>
-      </Link>
-    );
-  });
+        </Link>
+      );
+    });
 
   return (
     <div className="projectPosition">

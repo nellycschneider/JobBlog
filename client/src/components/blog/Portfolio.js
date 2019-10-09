@@ -13,20 +13,38 @@ export default class Portfolio extends Component {
   };
 
   getData = () => {
-    axios
-      .get(`/portfolio/user/${this.props.user._id}`)
-      .then(response => {
-        console.log(this.state);
-        this.setState({
-          projects: response.data
+    const userInUrl = this.props.match.params.username;
+    if (!userInUrl) {
+      console.log("NO PROPS.MATCH");
+      axios
+        .get(`/portfolio/user/${this.props.user._id}`)
+        // .get(`/portfolio/user/${userInUrl}`)
+        .then(response => {
+          console.log(this.state);
+          this.setState({
+            projects: response.data
+          });
+        })
+        .catch(err => {
+          console.log(err);
         });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    } else {
+      const username = userInUrl;
+      axios
+        .get(`/portfolio/username/${username}`)
+        .then(response => {
+          console.log("DATA FROM AXIOS", response);
+          this.setState({
+            projects: response.data
+          });
+        })
+        .catch(err => console.log(err));
+      // }
+    }
   };
 
   render() {
+    console.log("hi I am a props", this.props);
     return (
       <div className="portfolio">
         <h1 className="head">Portfolio</h1>
