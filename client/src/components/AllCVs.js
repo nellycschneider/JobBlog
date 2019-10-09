@@ -29,7 +29,6 @@ export default class AllCVs extends Component {
   render() {
     return (
       <div>
-        <h1>All CVs</h1>
         <div>
           {this.state.cvs.map(cv => {
             return (
@@ -42,16 +41,6 @@ export default class AllCVs extends Component {
             );
           })}
         </div>
-        <br />
-        <form>
-          <Link to="/cv/form" className="btn">
-            Add CV
-          </Link>
-          <br />
-          <Link to="/" className="btn">
-            Go back
-          </Link>
-        </form>
       </div>
     );
   }
