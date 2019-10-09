@@ -10,8 +10,9 @@ export default class AllCVs extends Component {
   };
 
   getAllCVs = () => {
+    console.log("Haaaaaalo-------->", this);
     axios
-      .get("/cv/all")
+      .get(`/cv/user/${this.props.user._id}`)
       .then(responseFromApi => {
         this.setState({
           cvs: responseFromApi.data
@@ -22,9 +23,10 @@ export default class AllCVs extends Component {
       });
   };
 
-  componentDidMount() {
+  componentDidMount = () => {
+    console.log("USER CV", this.props);
     this.getAllCVs();
-  }
+  };
 
   render() {
     return (

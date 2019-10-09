@@ -111,6 +111,18 @@ router.get("/all", (req, res) => {
     });
 });
 
+router.get("/user/:id", (req, res) => {
+  const id = req.params.id;
+  CVModel.find({ owner: id })
+    .then(cv => {
+      console.log(cv);
+      res.status(200).json(cv);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
 // PUT /cv/:id
 router.patch("/:id", (req, res) => {
   console.log(req.params.id);

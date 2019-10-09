@@ -54,7 +54,7 @@ class App extends React.Component {
             <Route exact path="/signup" render={props => <Signup setUser={this.setUser} {...props} />} />
             <Route exact path="/login" render={props => <Login setUser={this.setUser} {...props} />} />
             {/* ================CV Router===================== */}
-            <Route exact path="/cv/all" render={props => <AllCVs setUser={this.setUser} {...props} />} />
+            <Route exact path="/cv/all" render={props => <AllCVs setUser={this.setUser} user={this.state.user} {...props} />} />
             <Route exact path="/cv-details/:id" render={props => <FinishedCV setUser={this.setUser} {...props} user={this.state.user} />} />
             {/* only logged in users */}
             {this.state.user ? (
