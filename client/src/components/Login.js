@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Form, Button, Alert } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { login } from "../services/api";
 
@@ -49,10 +49,11 @@ export default class Login extends Component {
               <button type="submit" className="btn-form">
                 LOGIN
               </button>
-              <Link to="/signup" className="btn-form text-center">
-                SIGNIN
-              </Link>
             </div>
+            <p className="loginSignup">
+              Still don't have an account ¯\_(ツ)_/¯?? <Link to="/signup">Sign up here</Link>
+            </p>
+            {this.state.message && <Alert variant="danger">{this.state.message}</Alert>}
           </form>
         </div>
       </>
