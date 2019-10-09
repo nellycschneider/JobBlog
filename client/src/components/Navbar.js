@@ -19,16 +19,15 @@ const Navbar = props => {
               Home
             </Link>
           </li>
-          <li>
-            {" "}
-            <Link className="navItem portfolioNav" to={`/portfolio/user/${props.username}`}>
-              Portfolio
-            </Link>
-          </li>
 
           {props.user ? (
             // user is logged in, show these
             <>
+              <li>
+                <Link className="navItem portfolioNav" to={`/portfolio/user/${props.username}`}>
+                  Portfolio
+                </Link>
+              </li>
               <li>
                 <Link to="/portfolio/dashboard" className="btn">
                   Dashboard
