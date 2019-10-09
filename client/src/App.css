@@ -131,7 +131,7 @@ p {
 
 /* ============================================= */
 /* ============================================= */
-/* Forms */
+/* Login Sign in Forms */
 /* ============================================= */
 /* ============================================= */
 
@@ -201,6 +201,37 @@ input:hover {
 }
 
 .btn-form:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ============================================= */
+/* ============================================= */
+/* CV Forms */
+/* ============================================= */
+/* ============================================= */
+
+.form-card input,
+.form-fragment input {
+  font-family: "Muli", sans-serif;
+  font-size: 1.5rem;
+  height: 35px;
+  padding: 0px 15px 0px 15px;
+
+  background: transparent;
+  outline: none;
+  color: #000;
+
+  border: solid 1px #000;
+  border-radius: 0;
+
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+.form-card input:hover {
   background: #000;
   color: #fff;
 }
@@ -311,17 +342,14 @@ input:hover {
   width: 50vw;
 }
 
-.form-fragment input {
-  padding: 5px;
-  font-size: 1.5rem;
+/* .form-fragment input {
   width: 40vw;
   margin: 10px;
-  color: grey;
-}
+} */
 
 /*============= CV FORM =============*/
 
-.form-card {
+/* .form-card {
   font-family: "Muli", sans-serif;
 }
 
@@ -331,7 +359,7 @@ input:hover {
 
 .form-card input {
   font-size: 1.5rem;
-}
+} */
 /*============= Jobs =============*/
 
 .jobs {
