@@ -162,11 +162,11 @@ p {
   display: flex;
 }
 
-.btn-color {
+/* .btn-color {
   border-color: rgb(224, 91, 58);
   box-shadow: 3px 3px 0px 0px rgb(224, 91, 58);
   color: rgb(224, 91, 58);
-}
+} */
 
 /* ============================================= */
 /* ============================================= */
@@ -368,6 +368,8 @@ input:hover {
 .contactForm h1 {
   font-size: 5rem;
   padding: 35px;
+  color: rgb(224, 91, 58);
+  font-weight: bold;
 }
 
 .contactForm .contact {
@@ -406,6 +408,7 @@ input:hover {
   font-size: 2.4rem;
   font-weight: bold;
   padding: 10px 0;
+  color: rgb(224, 91, 58);
 }
 
 .skills p {
@@ -423,6 +426,7 @@ input:hover {
   font-size: 2.4rem;
   font-weight: bold;
   padding: 10px 0;
+  color: rgb(224, 91, 58);
 }
 
 .exp-small-section {
@@ -449,6 +453,7 @@ input:hover {
   padding: 10px 0;
   font-size: 2.4rem;
   font-weight: bold;
+  color: rgb(224, 91, 58);
 }
 
 .projects-section a {
@@ -479,6 +484,7 @@ input:hover {
   font-size: 2.4rem;
   font-weight: bold;
   padding: 10px 0;
+  color: rgb(224, 91, 58);
 }
 
 .extra {
@@ -492,6 +498,7 @@ input:hover {
   padding: 10px 0;
   font-size: 2.4rem;
   font-weight: bold;
+  color: rgb(224, 91, 58);
 }
 
 .extra h5 {
@@ -606,6 +613,11 @@ input:hover {
   justify-content: space-around;
 }
 
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*============= Portfolio / Projects =============*/
 
 .projectPosition {
@@ -807,4 +819,24 @@ Mobile
   .MobileNavBar i {
     font-size: 1.8rem;
   }
+}
+
+/* ============================================= */
+/* ============================================= */
+/*ALL CVS*/
+/* ============================================= */
+/* ============================================= */
+
+.all-cvs {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.all-cvs-dashboard {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }

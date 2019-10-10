@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default class JobDashboard extends Component {
@@ -30,16 +30,22 @@ export default class JobDashboard extends Component {
       console.log(el.link);
       return (
         <div className="jobs">
-          <div
-            className="imgBgDark center"
-            style={{ background: "#000", height: "200px", width: "200px" }}
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={`http://${el.link}`}
           >
-            <p className="type">{el.type}</p>
-          </div>
-          <div className="contentJob">
-            <p className="date">{el.updatedAt}</p>
-            <h4 className="title">{el.title}</h4>
-          </div>
+            <div
+              className="imgBgDark center"
+              style={{ background: "#000", height: "200px", width: "200px" }}
+            >
+              <p className="type">{el.type}</p>
+            </div>
+            <div className="contentJob">
+              <p className="date">{el.updatedAt}</p>
+              <h4 className="title">{el.title}</h4>
+            </div>
+          </a>
         </div>
       );
     });

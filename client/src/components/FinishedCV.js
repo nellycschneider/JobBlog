@@ -432,22 +432,21 @@ export default class FinishedCV extends Component {
           )}
 
           {canDelete && (
-            <button onClick={this.deleteCV} className="btn">
-              Delete CV
-            </button>
+            <>
+              <button onClick={this.deleteCV} className="btn">
+                Delete CV
+              </button>
+              <Link to="/cv/all" className="btn">
+                go back
+              </Link>
+            </>
           )}
-
-          <Link to="/cv/all" className="btn">
-            go back
-          </Link>
         </form>
         {this.state.editForm && (
           <EditCV
             id={this.props.match.params}
             {...this.state}
             getData={this.getData}
-            // handleChange={this.handleChange}
-            // handleSubmit={this.handleSubmit}
           />
         )}
       </div>

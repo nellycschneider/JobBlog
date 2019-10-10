@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar as Nav } from "react-bootstrap";
 import { logout } from "../services/api";
 
 const handleLogout = props => {
@@ -86,7 +85,10 @@ const Navbar = props => {
             // user is logged in, show these
             <>
               <li>
-                <Link className="navItem btn" to={`/portfolio/user/${props.user.username}`}>
+                <Link
+                  className="navItem btn"
+                  to={`/portfolio/user/${props.user.username}`}
+                >
                   <i class="fas fa-paint-brush"></i>
                 </Link>
               </li>
@@ -101,7 +103,11 @@ const Navbar = props => {
                 </Link>
               </li>
               <li>
-                <Link className="navItem btn" to="/" onClick={() => handleLogout(props)}>
+                <Link
+                  className="navItem btn"
+                  to="/"
+                  onClick={() => handleLogout(props)}
+                >
                   <i class="fas fa-sign-out-alt"></i>
                 </Link>
               </li>
