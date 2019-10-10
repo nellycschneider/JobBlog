@@ -30,8 +30,11 @@ export default class JobDashboard extends Component {
         return new Date(b.createdAt) - new Date(a.createdAt);
       })
       .map(el => {
-        // const created = el.createdAt;
-        // console.log(created);
+        const date = el.createdAt.slice(0, 10);
+        const year = date.slice(0, 4);
+        const month = date.slice(5, 7);
+        const day = date.slice(8, 10);
+        const titleDate = `${day}-${month}-${year}`;
 
         return (
           <div className="jobs" key={el._id}>
@@ -47,7 +50,7 @@ export default class JobDashboard extends Component {
                 <p className="type">{el.type}</p>
               </div>
               <div className="contentJob">
-                <p className="date">{el.updatedAt}</p>
+                <p className="date">{titleDate}</p>
                 <h4 className="title">{el.title}</h4>
               </div>
             </a>
