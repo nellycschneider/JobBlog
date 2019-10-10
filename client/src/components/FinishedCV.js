@@ -321,12 +321,20 @@ export default class FinishedCV extends Component {
                 <p>{phone}</p>
               </div>
               <div className="icons">
-                <a rel="noopener noreferrer" target="_blank" href={`http://${linkedin}`}>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={`http://${linkedin}`}
+                >
                   <i class="fab fa-linkedin-in fa-2x"></i>
                   {linkedin}
                 </a>
                 <br />
-                <a rel="noopener noreferrer" target="_blank" href={`http://${github}`}>
+                <a
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={`http://${github}`}
+                >
                   <i class="fab fa-github fa-2x"></i>
                   {github}
                 </a>

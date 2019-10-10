@@ -76,8 +76,10 @@ export default class ProjectDetails extends Component {
   render() {
     const content = this.state.content.map((el, i) => {
       return (
-        <div key={i}>
-          <img src={el.img} alt="" />
+        <div className="projectContent" key={i}>
+          <div className="projectImg">
+            <img src={el.img} alt="" />
+          </div>
           <p>{el.imgDescription}</p>
         </div>
       );
@@ -93,17 +95,20 @@ export default class ProjectDetails extends Component {
           <div
             className="titlePicture"
             style={{
-              background: `url(${this.state.content[0].img})`
+              background: `url(${this.state.content[0].img})`,
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center"
             }}
           >
-            {" "}
+            <h1 className="projectTitle">{this.state.title}</h1>
           </div>
         ) : (
           ""
         )}
-        <h1>{this.state.title}</h1>
-        <p>{this.state.description}</p>
-        {content}
+
+        <p className="projectDescription">{this.state.description}</p>
+        <div className="content">{content}</div>
       </div>
     );
   }

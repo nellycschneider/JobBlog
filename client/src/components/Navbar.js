@@ -13,6 +13,8 @@ const Navbar = props => {
   console.log("Hallo ------>", props);
   return (
     <div className="navBarPosition">
+      {/* WIDE SCREEN NAV */}
+
       <nav className="navBar">
         <ul>
           <li>
@@ -63,6 +65,58 @@ const Navbar = props => {
               <li>
                 <Link className="navItem" to="/login">
                   Login
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
+
+      {/* MOBILE NAV */}
+
+      <nav className="MobileNavBar">
+        <ul>
+          <li>
+            <Link className="navItem btn" to="/">
+              <i class="fas fa-home"></i>
+            </Link>
+          </li>
+
+          {props.user ? (
+            // user is logged in, show these
+            <>
+              <li>
+                <Link className="navItem btn" to={`/portfolio/user/${props.user.username}`}>
+                  <i class="fas fa-paint-brush"></i>
+                </Link>
+              </li>
+              <li>
+                <Link to="/portfolio/dashboard" className="navItem btn">
+                  <i class="fas fa-pencil-ruler"></i>
+                </Link>
+              </li>
+              <li>
+                <Link className="navItem btn allCv" to="/cv/all">
+                  <i class="fas fa-id-card"></i>
+                </Link>
+              </li>
+              <li>
+                <Link className="navItem btn" to="/" onClick={() => handleLogout(props)}>
+                  <i class="fas fa-sign-out-alt"></i>
+                </Link>
+              </li>
+            </>
+          ) : (
+            // else show these
+            <>
+              <li>
+                <Link className="navItem btn" to="/signup">
+                  <i class="fas fa-signature"></i>
+                </Link>
+              </li>
+              <li>
+                <Link className="navItem btn" to="/login">
+                  <i class="fas fa-sign-out-alt"></i>
                 </Link>
               </li>
             </>
