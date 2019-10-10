@@ -129,7 +129,7 @@ export default class EditProject extends Component {
           title: response.data.title,
           description: response.data.description,
           content: response.data.content,
-          type: this.response.type
+          type: response.data.type
         });
         this.props.history.push("/portfolio/dashboard");
       })
@@ -138,9 +138,9 @@ export default class EditProject extends Component {
       });
   };
 
-  handleChangeType(event) {
-    this.setState({ value: event.target.type });
-  }
+  handleChangeType = event => {
+    this.setState({ type: event.target.value });
+  };
 
   render() {
     return (
