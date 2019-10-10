@@ -335,7 +335,7 @@ export default class FinishedCV extends Component {
             </div>
           </div>
 
-          {/* <h3>Skills:</h3>
+          <h3>Skills:</h3>
           <p>{skills}</p>
           <h3>Experience:</h3>
           <h5>
@@ -375,7 +375,7 @@ export default class FinishedCV extends Component {
             <li>{extra_3}</li>
             <li>{extra_4}</li>
             <li>{extra_5}</li>
-          </ul> */}
+          </ul>
         </div>
         <form>
           {canEdit && (

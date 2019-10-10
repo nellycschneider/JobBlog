@@ -44,7 +44,6 @@ export default class Portfolio extends Component {
   };
 
   render() {
-    console.log("hi I am a props", this.props);
     return (
       <div className="portfolio">
         <h1 className="head">Portfolio</h1>
