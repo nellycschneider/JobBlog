@@ -35,7 +35,7 @@ router.post("/signup", (req, res) => {
       //User.create() returns a promise (if it doesn't fulfill in the .then(), it will be caught in the .catch() afterwards)
       return User.create({ username: username, password: hash }).then(
         dbUser => {
-          req.login(user, err => {
+          req.login(dbUser, err => {
             if (err) {
               return res
                 .status(500)
