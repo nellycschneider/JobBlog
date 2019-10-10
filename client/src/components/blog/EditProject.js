@@ -86,7 +86,10 @@ export default class EditProject extends Component {
     event.preventDefault();
     this.setState(
       {
-        content: [...this.state.content, { id: newId, imgDescription: "", img: "" }]
+        content: [
+          ...this.state.content,
+          { id: newId, imgDescription: "", img: "" }
+        ]
       },
       () => console.log(this.state.content)
     );
@@ -94,7 +97,9 @@ export default class EditProject extends Component {
 
   handleClickDelete = deletedContent => {
     console.log(deletedContent);
-    const filtContent = this.state.content.filter(content => content._id !== deletedContent._id);
+    const filtContent = this.state.content.filter(
+      content => content._id !== deletedContent._id
+    );
     console.log(filtContent);
     this.setState({
       content: filtContent
@@ -126,6 +131,7 @@ export default class EditProject extends Component {
           content: response.data.content,
           type: this.response.type
         });
+        this.props.history.push("/portfolio/dashboard");
       })
       .catch(err => {
         console.log(err);
@@ -142,22 +148,41 @@ export default class EditProject extends Component {
         <form onSubmit={this.handleSubmit} className="form-create">
           <div className="title">
             <label htmlFor="title">Project Title: </label>
-            <input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} />
+            <input
+              type="text"
+              name="title"
+              id="title"
+              onChange={this.handleChange}
+              value={this.state.title}
+            />
           </div>
           <div className="description">
             <label htmlFor="description">Project Description: </label>
-            <textarea name="description" id="description" cols="30" rows="10" onChange={this.handleChange} value={this.state.description}></textarea>
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="10"
+              onChange={this.handleChange}
+              value={this.state.description}
+            ></textarea>
           </div>
           {this.state.content.length > 0
             ? this.state.content.map(el => {
                 return (
                   <div className="contentImg" key={el._id}>
-                    <button className="btn deleteSection" onClick={() => this.handleClickDelete(el)}>
+                    <button
+                      className="btn deleteSection"
+                      onClick={() => this.handleClickDelete(el)}
+                    >
                       <span className="minus">-</span>
                       <span> Delete Section</span>
                     </button>
                     <label htmlFor="imgUpload">Upload a Picture: </label>
-                    <input type="file" onChange={e => this.handleFileUpload(e, el._id)} />
+                    <input
+                      type="file"
+                      onChange={e => this.handleFileUpload(e, el._id)}
+                    />
 
                     <label htmlFor="description">Picture Description: </label>
                     <textarea
@@ -173,7 +198,12 @@ export default class EditProject extends Component {
               })
             : null}
 
-          <select className="btn" value={this.state.type} name="type" onChange={this.handleChangeType}>
+          <select
+            className="btn"
+            value={this.state.type}
+            name="type"
+            onChange={this.handleChangeType}
+          >
             <option value="Choose a Type">Choose a Type</option>
             <option value="UI/UX">UI/UX</option>
             <option value="Frontend">Frontend</option>
@@ -189,7 +219,10 @@ export default class EditProject extends Component {
           <button type="submit" className="btn">
             Create Post
           </button>
-          <button className="btn deleteSection deleteProject" onClick={this.deleteProject}>
+          <button
+            className="btn deleteSection deleteProject"
+            onClick={this.deleteProject}
+          >
             <span className="minus">-</span>
             <span> Delete Project</span>
           </button>
