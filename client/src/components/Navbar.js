@@ -9,7 +9,6 @@ const handleLogout = props => {
 };
 
 const Navbar = props => {
-  console.log("Hallo ------>", props);
   return (
     <div className="navBarPosition">
       {/* WIDE SCREEN NAV */}
@@ -26,7 +25,10 @@ const Navbar = props => {
             // user is logged in, show these
             <>
               <li>
-                <Link className="navItem portfolioNav btn" to={`/portfolio/user/${props.user.username}`}>
+                <Link
+                  className="navItem portfolioNav btn"
+                  to={`/portfolio/user/${props.user.username}`}
+                >
                   Portfolio
                 </Link>
               </li>
@@ -41,7 +43,11 @@ const Navbar = props => {
                 </Link>
               </li>
               <li>
-                <Link className="navItem btn" to="/" onClick={() => handleLogout(props)}>
+                <Link
+                  className="navItem btn"
+                  to="/"
+                  onClick={() => handleLogout(props)}
+                >
                   Logout
                 </Link>
               </li>
@@ -70,7 +76,7 @@ const Navbar = props => {
         <ul>
           <li>
             <Link className="navItem btn" to="/">
-              <i class="fas fa-home"></i>
+              <i className="fas fa-home"></i>
             </Link>
           </li>
 
@@ -78,23 +84,30 @@ const Navbar = props => {
             // user is logged in, show these
             <>
               <li>
-                <Link className="navItem btn" to={`/portfolio/user/${props.user.username}`}>
-                  <i class="fas fa-paint-brush"></i>
+                <Link
+                  className="navItem btn"
+                  to={`/portfolio/user/${props.user.username}`}
+                >
+                  <i className="fas fa-paint-brush"></i>
                 </Link>
               </li>
               <li>
                 <Link to="/portfolio/dashboard" className="navItem btn">
-                  <i class="fas fa-pencil-ruler"></i>
+                  <i className="fas fa-pencil-ruler"></i>
                 </Link>
               </li>
               <li>
                 <Link className="navItem btn allCv" to="/cv/all">
-                  <i class="fas fa-id-card"></i>
+                  <i className="fas fa-id-card"></i>
                 </Link>
               </li>
               <li>
-                <Link className="navItem btn" to="/" onClick={() => handleLogout(props)}>
-                  <i class="fas fa-sign-out-alt"></i>
+                <Link
+                  className="navItem btn"
+                  to="/"
+                  onClick={() => handleLogout(props)}
+                >
+                  <i className="fas fa-sign-out-alt"></i>
                 </Link>
               </li>
             </>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ProjectList = props => {
   return (
     <div>
-      {props.projects.map(project => {
+      {props.projects.map((project, index) => {
         const date = project.createdAt.slice(0, 10);
         const year = date.slice(0, 4);
         const month = date.slice(5, 7);
@@ -12,7 +12,10 @@ const ProjectList = props => {
         const titleDate = `${day}-${month}-${year}`;
         return (
           <>
-            <Link to={`/portfolio/dashboard/edit-project/${project._id}`} className="Link">
+            <Link
+              to={`/portfolio/dashboard/edit-project/${project._id}`}
+              className="Link"
+            >
               <div className="portfolioList">
                 <div
                   className="imgBg"
@@ -25,7 +28,8 @@ const ProjectList = props => {
                   <div
                     className="img"
                     style={{
-                      background: `url(${project.content.length > 0 && project.content[0].img})`,
+                      background: `url(${project.content.length > 0 &&
+                        project.content[0].img})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       height: "70px",

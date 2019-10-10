@@ -676,6 +676,7 @@ input:hover {
 /*============= Job Dashboard =============*/
 .jobList {
   display: flex;
+  /* flex-direction: row-reverse; */
   overflow-x: scroll;
 }
 
@@ -724,6 +725,7 @@ input:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* flex-direction: row-reverse; */
 }
 
 .jobs .center p {

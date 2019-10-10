@@ -29,7 +29,6 @@ export default class Portfolio extends Component {
   };
 
   render() {
-    console.log("PROJECTS----------->", this.state.projects);
     return (
       <div>
         <div className="newJob">
