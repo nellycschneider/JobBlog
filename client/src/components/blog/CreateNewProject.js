@@ -30,6 +30,7 @@ export default class CreateNewProject extends Component {
           content: [],
           owner: this.props.user._id
         });
+        this.props.history.push("/portfolio/dashboard");
       })
       .catch(err => {
         console.log(err);
@@ -74,7 +75,6 @@ export default class CreateNewProject extends Component {
       },
       () => console.log(this.state.content)
     );
-    
   };
 
   handleClickDelete = deletedContent => {

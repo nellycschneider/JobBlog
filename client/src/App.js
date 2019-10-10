@@ -61,7 +61,11 @@ class App extends React.Component {
             />
             {/* <Route exact path="/portfolio/" render={props => <Portfolio user={this.state.user} {...props} />} /> */}
             <Route exact path="/job" component={JobDashboard} />
-            <Route exact path="/job/create-new" component={CreateJob} />
+            <Route
+              exact
+              path="/job/create-new"
+              render={props => <CreateJob user={this.state.user} {...props} />}
+            />
             <Route path="/job/:id" component={JobEdit} /> */}
             {/* ================SignUp/LogIn===================== */}
             <Route
@@ -99,7 +103,9 @@ class App extends React.Component {
                   <Route
                     exact
                     path="/portfolio/dashboard/create-new"
-                    render={() => <CreateNewProject user={this.state.user} />}
+                    render={props => (
+                      <CreateNewProject user={this.state.user} {...props} />
+                    )}
                   />
                   <Route
                     exact

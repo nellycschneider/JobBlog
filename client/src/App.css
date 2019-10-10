@@ -160,6 +160,7 @@ p {
 
 .home-small {
   display: flex;
+  padding: 15px;
 }
 
 /* .btn-color {
