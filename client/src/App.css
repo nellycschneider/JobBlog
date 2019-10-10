@@ -141,7 +141,7 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .homepage h1 {
@@ -161,12 +161,6 @@ p {
   display: flex;
   padding: 15px;
 }
-
-/* .btn-color {
-  border-color: rgb(224, 91, 58);
-  box-shadow: 3px 3px 0px 0px rgb(224, 91, 58);
-  color: rgb(224, 91, 58);
-} */
 
 /* ============================================= */
 /* ============================================= */
@@ -253,7 +247,7 @@ input:hover {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  height: 80vh;
 }
 
 .login-page h2 {
@@ -275,12 +269,35 @@ input:hover {
 /* ============================================= */
 
 /* Create Project Form */
+.form-create .btn {
+  margin-bottom: 20px;
+}
+
+.deleteProject {
+  background: #ed3832;
+}
+
+.deleteSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.minus {
+  font-size: 3rem;
+  margin-right: 5px;
+}
+
+.form-create i {
+  font-family: "Muli", sans-serif;
+}
+
 .form-create div {
   margin-bottom: 20px;
 }
 
 .form-create label {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .form-create .description label {
@@ -289,7 +306,6 @@ input:hover {
 }
 
 .form-create {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -871,6 +887,10 @@ Mobile
 
   .projectContent p {
     font-size: 1.5rem;
+  }
+
+  .form-create label {
+    font-size: 1.8rem;
   }
 }
 

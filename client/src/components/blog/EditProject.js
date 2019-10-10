@@ -139,7 +139,7 @@ export default class EditProject extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="form-create">
           <div className="title">
             <label htmlFor="title">Project Title: </label>
             <input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} />
@@ -151,9 +151,10 @@ export default class EditProject extends Component {
           {this.state.content.length > 0
             ? this.state.content.map(el => {
                 return (
-                  <div className="content" key={el._id}>
-                    <button onClick={() => this.handleClickDelete(el)}>
-                      <i className="fas fa-minus"></i>
+                  <div className="contentImg" key={el._id}>
+                    <button className="btn deleteSection" onClick={() => this.handleClickDelete(el)}>
+                      <span className="minus">-</span>
+                      <span> Delete Section</span>
                     </button>
                     <label htmlFor="imgUpload">Upload a Picture: </label>
                     <input type="file" onChange={e => this.handleFileUpload(e, el._id)} />
@@ -172,7 +173,8 @@ export default class EditProject extends Component {
               })
             : null}
 
-          <select value={this.state.type} name="type" onChange={this.handleChangeType}>
+          <select className="btn" value={this.state.type} name="type" onChange={this.handleChangeType}>
+            <option value="Choose a Type">Choose a Type</option>
             <option value="UI/UX">UI/UX</option>
             <option value="Frontend">Frontend</option>
             <option selected value="Backend">
@@ -181,10 +183,15 @@ export default class EditProject extends Component {
             <option value="Fullstack">Fullstack</option>
           </select>
 
-          <button onClick={this.handleClick}>Create new</button>
-          <button type="submit">Create Post</button>
-          <button onClick={this.deleteProject}>
-            <i className="fas fa-minus"></i>
+          <button onClick={this.handleClick} className="btn">
+            Create new
+          </button>
+          <button type="submit" className="btn">
+            Create Post
+          </button>
+          <button className="btn deleteSection deleteProject" onClick={this.deleteProject}>
+            <span className="minus">-</span>
+            <span> Delete Project</span>
           </button>
         </form>
       </div>

@@ -87,9 +87,10 @@ export default class CreateNewJob extends Component {
             name="type"
             onChange={this.handleChange}
           >
+            <option value="Choose a type">Choose a type</option>
             <option value="UI/UX">UI/UX</option>
             <option value="Frontend">Frontend</option>
-            <option selected value="Backend">
+            <option value="Backend">
               Backend
             </option>
             <option value="Fullstack">Fullstack</option>

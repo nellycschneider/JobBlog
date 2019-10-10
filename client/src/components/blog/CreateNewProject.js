@@ -126,8 +126,9 @@ export default class CreateNewProject extends Component {
           {this.state.content.map(el => {
             return (
               <div className="contentImg" key={el.id}>
-                <button onClick={() => this.handleClickDelete(el)}>
-                  <i className="fas fa-minus"></i>
+                <button className="btn deleteSection" onClick={() => this.handleClickDelete(el)}>
+                  <span className="minus">-</span>
+                  <span> Delete Section</span>
                 </button>
 
                 <label htmlFor="imgUpload" className="imgUpload">
@@ -151,10 +152,12 @@ export default class CreateNewProject extends Component {
           })}
 
           <button onClick={this.handleClick} className="btn">
+            <span className="minus">+</span>
             Upload picture
           </button>
 
           <select className="btn" value={this.state.type} name="type" onChange={this.handleChangeType}>
+            <option value="Choose a Type">Choose a Type</option>
             <option value="UI/UX">UI/UX</option>
             <option value="Frontend">Frontend</option>
             <option selected value="Backend">
