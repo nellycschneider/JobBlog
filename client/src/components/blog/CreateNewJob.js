@@ -47,7 +47,7 @@ export default class CreateNewJob extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} nclassName="form-create">
           <div className="title">
             <label htmlFor="title">Job Title: </label>
             <input
@@ -86,18 +86,19 @@ export default class CreateNewJob extends Component {
             value={this.state.type}
             name="type"
             onChange={this.handleChange}
+            className="btn"
           >
             <option value="Choose a type">Choose a type</option>
             <option value="UI/UX">UI/UX</option>
             <option value="Frontend">Frontend</option>
-            <option value="Backend">
-              Backend
-            </option>
+            <option value="Backend">Backend</option>
             <option value="Fullstack">Fullstack</option>
             <option value="Data">Data</option>
           </select>
 
-          <button type="submit">Create Post</button>
+          <button type="submit" className="btn">
+            Create Post
+          </button>
         </form>
       </div>
     );
