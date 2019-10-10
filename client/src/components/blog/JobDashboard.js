@@ -26,7 +26,13 @@ export default class JobDashboard extends Component {
 
   render() {
     const jobList = this.state.jobs
+      .sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      })
       .map(el => {
+        // const created = el.createdAt;
+        // console.log(created);
+
         return (
           <div className="jobs" key={el._id}>
             <a
@@ -47,8 +53,7 @@ export default class JobDashboard extends Component {
             </a>
           </div>
         );
-      })
-      .sort();
+      });
 
     return <>{jobList}</>;
   }

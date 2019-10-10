@@ -74,12 +74,6 @@ const Navbar = props => {
 
       <nav className="MobileNavBar">
         <ul>
-          <li>
-            <Link className="navItem btn" to="/">
-              <i className="fas fa-home"></i>
-            </Link>
-          </li>
-
           {props.user ? (
             // user is logged in, show these
             <>
@@ -114,6 +108,11 @@ const Navbar = props => {
           ) : (
             // else show these
             <>
+              <li>
+                <Link className="navItem btn" to="/">
+                  <i className="fas fa-home"></i>
+                </Link>
+              </li>
               <li>
                 <Link className="navItem btn" to="/signup">
                   <i class="fas fa-signature"></i>
