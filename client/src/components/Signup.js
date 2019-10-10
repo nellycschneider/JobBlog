@@ -34,7 +34,7 @@ export default class Signup extends Component {
         // successfully signed up
         // update the state for the parent component
         this.props.setUser(data);
-        this.props.history.push("/portfolio");
+        this.props.history.push("/portfolio/dashboard");
       }
     });
   };
@@ -47,8 +47,22 @@ export default class Signup extends Component {
         <h2>Sign up</h2>
         <div className="form">
           <form onSubmit={this.handleSubmit}>
-            <input type="text" name="username" value={this.state.username} onChange={this.handleChange} id="username" placeholder="NAME" />
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} id="password" placeholder="PASSWORD" />
+            <input
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleChange}
+              id="username"
+              placeholder="NAME"
+            />
+            <input
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              id="password"
+              placeholder="PASSWORD"
+            />
             <div className="buttons">
               <button type="submit" className="btn-form">
                 SIGN UP
@@ -57,7 +71,9 @@ export default class Signup extends Component {
             <p className="loginSignup">
               Already have an account? <Link to="/login">Login here</Link>
             </p>
-            {this.state.message && <Alert variant="danger">{this.state.message}</Alert>}
+            {this.state.message && (
+              <Alert variant="danger">{this.state.message}</Alert>
+            )}
           </form>
         </div>
       </>

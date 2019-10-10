@@ -22,33 +22,33 @@ export default class Education extends Component {
         <form onSubmit={this.continue}>
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-4 text-left">
-              <label>College/University*</label>
               <input
                 type="text"
                 name="edu1_school"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="College/University*"
                 defaultValue={values.status === 1 ? "" : values.edu1_school}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="col-lg-4 text-left">
-              <label>Year*</label>
               <input
                 type="text"
                 name="edu1_year"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Year*"
                 defaultValue={values.status === 1 ? "" : values.edu1_year}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="col-lg-4 text-left">
-              <label>Qualification*</label>
               <input
                 type="text"
                 name="edu1_qualification"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Qualification*"
                 defaultValue={
                   values.status === 1 ? "" : values.edu1_qualification
                 }
@@ -59,11 +59,11 @@ export default class Education extends Component {
           </div>
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-12 text-left">
-              <label>Description*</label>
               <input
                 type="text"
                 name="edu1_desc"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Description*"
                 defaultValue={values.status === 1 ? "" : values.edu1_desc}
                 onChange={handleChange}
                 required
@@ -76,31 +76,31 @@ export default class Education extends Component {
 
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-4 text-left">
-              <label>School</label>
               <input
                 type="text"
                 name="edu2_school"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="School"
                 defaultValue={values.status === 1 ? "" : values.edu2_school}
                 onChange={handleChange}
               />
             </div>
             <div className="col-lg-4 text-left">
-              <label>Year</label>
               <input
                 type="text"
                 name="edu2_year"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Year"
                 defaultValue={values.status === 1 ? "" : values.edu2_year}
                 onChange={handleChange}
               />
             </div>
             <div className="col-lg-4 text-left">
-              <label>Qualification</label>
               <input
                 type="text"
                 name="edu2_qualification"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Qualification"
                 defaultValue={
                   values.status === 1 ? "" : values.edu2_qualification
                 }
@@ -110,11 +110,11 @@ export default class Education extends Component {
           </div>
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-12 text-left">
-              <label>Description</label>
               <input
                 type="text"
                 name="edu2_desc"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Description"
                 defaultValue={values.status === 1 ? "" : values.edu2_desc}
                 onChange={handleChange}
               />

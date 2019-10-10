@@ -14,7 +14,11 @@ class Extras extends Component {
 
     const data = this.props.values;
 
-    axios.post("/cv", data).then(res => console.log(res));
+    axios.post("/cv", data).then(res => {
+      this.props.getId(res.data._id);
+      console.log(res);
+    });
+
     e.target.reset();
   };
 
@@ -32,23 +36,23 @@ class Extras extends Component {
               <input
                 type="text"
                 name="extra_1"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Languages"
                 defaultValue={values.status === 1 ? "" : values.extra_1}
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="extra_1">Languages</label>
             </div>
             <div className="col-lg-6 md-form">
               <input
                 type="text"
                 name="extra_2"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Hobbies"
                 defaultValue={values.status === 1 ? "" : values.extra_2}
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="extra_2">Hobbies</label>
             </div>
           </div>
           <br />
@@ -58,24 +62,24 @@ class Extras extends Component {
                 type="text"
                 name="extra_3"
                 id="extra_3"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Activity/Achievement"
                 defaultValue={values.status === 1 ? "" : values.extra_3}
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="extra_3">Activity/Achievement</label>
             </div>
             <div className="col-lg-6 md-form">
               <input
                 type="text"
                 name="extra_4"
                 id="extra_4"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Activity/Achievement"
                 defaultValue={values.status === 1 ? "" : values.extra_4}
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="extra_4">Activity/Achievement</label>
             </div>
           </div>
 
@@ -85,12 +89,12 @@ class Extras extends Component {
                 type="text"
                 name="extra_5"
                 id="extra_5"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Activity/Achievement"
                 defaultValue={values.status === 1 ? "" : values.extra_5}
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="extra_5">Activity/Achievement</label>
             </div>
           </div>
           <br />

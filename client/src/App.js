@@ -17,6 +17,7 @@ import Login from "./components/Login";
 import FinishedCV from "./components/FinishedCV";
 import AllCVs from "./components/AllCVs";
 import UserForm from "./components/UserForm";
+import Home from "./components/Home";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -41,31 +42,89 @@ class App extends React.Component {
         {/* if there's no logged in user, don't show the projects page */}
         <div className="container-custom">
           <Switch>
-            <Route exact path="/" render={props => <Login setUser={this.setUser} {...props} />} />
-            <Route exact path="/signup" render={props => <Signup setUser={this.setUser} {...props} />} />
+            <Route
+              exact
+              path="/"
+              render={props => <Home setUser={this.setUser} {...props} />}
+            />
+            <Route
+              exact
+              path="/signup"
+              render={props => <Signup setUser={this.setUser} {...props} />}
+            />
             {/* ================BLOG Router===================== */}
             <Route path="/portfolio/project/:id" component={Project} /> */}
-            <Route exact path="/portfolio/user/:username" render={props => <Portfolio user={this.state.user} {...props} />} />
+            <Route
+              exact
+              path="/portfolio/user/:username"
+              render={props => <Portfolio user={this.state.user} {...props} />}
+            />
             {/* <Route exact path="/portfolio/" render={props => <Portfolio user={this.state.user} {...props} />} /> */}
             <Route exact path="/job" component={JobDashboard} />
             <Route exact path="/job/create-new" component={CreateJob} />
             <Route path="/job/:id" component={JobEdit} /> */}
             {/* ================SignUp/LogIn===================== */}
-            <Route exact path="/signup" render={props => <Signup setUser={this.setUser} {...props} />} />
-            <Route exact path="/login" render={props => <Login setUser={this.setUser} {...props} />} />
+            <Route
+              exact
+              path="/signup"
+              render={props => <Signup setUser={this.setUser} {...props} />}
+            />
+            <Route
+              exact
+              path="/login"
+              render={props => <Login setUser={this.setUser} {...props} />}
+            />
             {/* ================CV Router===================== */}
-            <Route exact path="/cv/all" render={props => <AllCVs setUser={this.setUser} user={this.state.user} {...props} />} />
-            <Route exact path="/cv-details/:id" render={props => <FinishedCV setUser={this.setUser} {...props} user={this.state.user} />} />
+            <Route
+              exact
+              path="/cv/all"
+              render={props => (
+                <AllCVs
+                  setUser={this.setUser}
+                  user={this.state.user}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/cv-details/:id"
+              render={props => (
+                <FinishedCV
+                  setUser={this.setUser}
+                  user={this.state.user}
+                  {...props}
+                />
+              )}
+            />
             {/* only logged in users */}
             {this.state.user ? (
               <>
                 <Switch>
                   {/* ================BLOG Router===================== */}
-                  <Route exact path="/portfolio/dashboard" render={() => <PortfolioDashboard user={this.state.user} />} />
-                  <Route exact path="/portfolio/dashboard/create-new" render={() => <CreateNewProject user={this.state.user} />} />
-                  <Route exact path="/portfolio/dashboard/edit-project/:id" component={EditProject} />
+                  <Route
+                    exact
+                    path="/portfolio/dashboard"
+                    render={() => <PortfolioDashboard user={this.state.user} />}
+                  />
+                  <Route
+                    exact
+                    path="/portfolio/dashboard/create-new"
+                    render={() => <CreateNewProject user={this.state.user} />}
+                  />
+                  <Route
+                    exact
+                    path="/portfolio/dashboard/edit-project/:id"
+                    component={EditProject}
+                  />
                   {/* ================CV Router===================== */}
-                  <Route exact path="/cv/form" render={props => <UserForm setUser={this.setUser} {...props} />} />
+                  <Route
+                    exact
+                    path="/cv/form"
+                    render={props => (
+                      <UserForm setUser={this.setUser} {...props} />
+                    )}
+                  />
                 </Switch>
               </>
             ) : (

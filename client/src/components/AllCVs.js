@@ -41,16 +41,6 @@ export default class AllCVs extends Component {
             );
           })}
         </div>
-        <br />
-        <form>
-          <Link to="/cv/form" className="btn">
-            Add CV
-          </Link>
-          <br />
-          <Link to="/" className="btn">
-            Go back
-          </Link>
-        </form>
       </div>
     );
   }
