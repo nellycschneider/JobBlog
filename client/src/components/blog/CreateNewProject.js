@@ -67,16 +67,22 @@ export default class CreateNewProject extends Component {
     event.preventDefault();
     this.setState(
       {
-        content: [...this.state.content, { id: newId, imgDescription: "", img: "" }]
+        content: [
+          ...this.state.content,
+          { id: newId, imgDescription: "", img: "" }
+        ]
       },
       () => console.log(this.state.content)
     );
+    
   };
 
   handleClickDelete = deletedContent => {
     // event.preventDefault();
     // const filtContent = this.state.content.map(x => x.id !== id);
-    const filtContent = this.state.content.filter(content => content.id !== deletedContent.id);
+    const filtContent = this.state.content.filter(
+      content => content.id !== deletedContent.id
+    );
     console.log(filtContent);
     this.setState({
       content: filtContent
@@ -110,11 +116,24 @@ export default class CreateNewProject extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Project Title: </label>
-            <input type="text" name="title" id="title" onChange={this.handleChangeTwo} value={this.state.title} />
+            <input
+              type="text"
+              name="title"
+              id="title"
+              onChange={this.handleChangeTwo}
+              value={this.state.title}
+            />
           </div>
           <div className="description">
             <label htmlFor="description">Project Description: </label>
-            <textarea name="description" id="description" cols="30" rows="10" onChange={this.handleChangeTwo} value={this.state.description}></textarea>
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="10"
+              onChange={this.handleChangeTwo}
+              value={this.state.description}
+            ></textarea>
           </div>
 
           {this.state.content.map(el => {
@@ -125,7 +144,10 @@ export default class CreateNewProject extends Component {
                 </button>
 
                 <label htmlFor="imgUpload">Upload a Picture: </label>
-                <input type="file" onChange={e => this.handleFileUpload(e, el.id)} />
+                <input
+                  type="file"
+                  onChange={e => this.handleFileUpload(e, el.id)}
+                />
 
                 <label htmlFor="description">Picture Description: </label>
                 <textarea
@@ -139,8 +161,12 @@ export default class CreateNewProject extends Component {
               </div>
             );
           })}
-          <button onClick={this.handleClick}>Create new</button>
-          <button type="submit">Create Post</button>
+          <button className="btn" onClick={this.handleClick}>
+            Add pictures
+          </button>
+          <button className="btn" type="submit">
+            Create Post
+          </button>
         </form>
       </div>
     );

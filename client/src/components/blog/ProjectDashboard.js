@@ -12,7 +12,14 @@ const ProjectList = props => {
               className="Link"
             >
               <div className="portfolioList">
-                <div className="imgBg" style={{ background: "#D3D3D3", height: "100px", width: "100px" }}>
+                <div
+                  className="imgBg"
+                  style={{
+                    background: "#D3D3D3",
+                    height: "100px",
+                    width: "100px"
+                  }}
+                >
                   <div
                     className="img"
                     style={{
@@ -25,7 +32,7 @@ const ProjectList = props => {
                   ></div>
                 </div>
                 <div className="content">
-                  <p className="date">01-03-2019</p>
+                  <p className="date">{project.updatedAt}</p>
                   <h4 className="title">{project.title}</h4>
                   <p className="type">UI/UX</p>
                 </div>

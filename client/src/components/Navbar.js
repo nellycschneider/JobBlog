@@ -10,6 +10,7 @@ const handleLogout = props => {
 };
 
 const Navbar = props => {
+  console.log("Hallo ------>", props);
   return (
     <div className="navBarPosition">
       <nav className="navBar">
@@ -19,16 +20,18 @@ const Navbar = props => {
               Home
             </Link>
           </li>
-          <li>
-            {" "}
-            <Link className="navItem portfolioNav" to="/portfolio">
-              Portfolio
-            </Link>
-          </li>
 
           {props.user ? (
             // user is logged in, show these
             <>
+              <li>
+                <Link
+                  className="navItem portfolioNav"
+                  to={`/portfolio/user/${props.user.username}`}
+                >
+                  Portfolio
+                </Link>
+              </li>
               <li>
                 <Link to="/portfolio/dashboard" className="btn">
                   Dashboard
@@ -40,7 +43,11 @@ const Navbar = props => {
                 </Link>
               </li>
               <li>
-                <Link className="navItem" to="/" onClick={() => handleLogout(props)}>
+                <Link
+                  className="navItem"
+                  to="/"
+                  onClick={() => handleLogout(props)}
+                >
                   Logout
                 </Link>
               </li>

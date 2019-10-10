@@ -305,64 +305,118 @@ export default class FinishedCV extends Component {
     // console.log("STATE CVS", this.state.cvs);
 
     return (
-      <div className="card animated bounceIn">
+      <div>
         <div className="card-body text-center pt-5 pb-5">
-          <h1>{name}</h1>
-          <h5>Email:</h5>
-          <p>{email}</p>
-          <h5>Contact:</h5>
-          <p>{phone}</p>
-          <h5>LinkedIn:</h5>
-          <p>
-            <a href={linkedin}>{linkedin}</a>
-          </p>
-          <h5>Github:</h5>
-          <p>
-            <a href={github}>{github}</a>
-          </p>
-          <h3>Skills:</h3>
-          <p>{skills}</p>
-          <h3>Experience:</h3>
-          <h5>
-            {exp1_org}, {exp1_pos}
-          </h5>
-          <p>{exp1_dur}</p>
-          <p>{exp1_desc}</p>
-          <h5>
-            {exp2_org}, {exp2_pos}
-          </h5>
-          <p>{exp2_dur}</p>
-          <p>{exp2_desc}</p>
-          <h3>Projects:</h3>
-          <h5>
-            {proj1_title} ({proj1_link})
-          </h5>
-          <p>{proj1_desc}</p>
-          <h5>
-            {proj2_title} ({proj2_link})
-          </h5>
-          <p>{proj2_desc}</p>
-          <h3>Education:</h3>
-          <h5>
-            {edu1_school} ({edu1_qualification}, {edu1_year})
-          </h5>
-          <p>{edu1_desc}</p>
-          <h5>
-            {edu2_school} ({edu2_qualification}, {edu2_year})
-          </h5>
-          <p>{edu2_desc}</p>
-          <h3>Extra-Curriculars/Activities:</h3>
-          <h5>Languages:</h5>
-          <p>{extra_1}</p>
-          <h5>Hobbies:</h5>
-          <p>{extra_2}</p>
-          <ul>
-            <li>{extra_3}</li>
-            <li>{extra_4}</li>
-            <li>{extra_5}</li>
-          </ul>
+          {/* Contact */}
+          <div className="contactForm">
+            <h1 className="contactName">{name}</h1>
+            <div className="contact">
+              <i class="far fa-envelope fa-2x"></i>
+              <p>{email}</p>
+            </div>
+
+            <div className="contact-column">
+              <div className="contact">
+                <i class="fas fa-phone fa-2x"></i>
+                <p>{phone}</p>
+              </div>
+              <div className="icons">
+                <a rel="noopener noreferrer" target="_blank" href={`http://${linkedin}`}>
+                  <i class="fab fa-linkedin-in fa-2x"></i>
+                  {linkedin}
+                </a>
+                <br />
+                <a rel="noopener noreferrer" target="_blank" href={`http://${github}`}>
+                  <i class="fab fa-github fa-2x"></i>
+                  {github}
+                </a>
+              </div>
+            </div>
+          </div>
+          {/* Skills */}
+          <div className="skills">
+            <h3>Skills:</h3>
+            <p>{skills}</p>
+          </div>
+
+          {/* Experience */}
+          <div className="experience">
+            <h3>Experience:</h3>
+            <div className="exp-middle-section">
+              <div className="exp-small-section">
+                <h5>
+                  {exp1_org}, {exp1_pos}
+                </h5>
+                <p>{exp1_dur}</p>
+                <p>{exp1_desc}</p>
+              </div>
+            </div>
+            <div className="exp-middle-section">
+              <div className="exp-small-section">
+                <h5>
+                  {exp2_org}, {exp2_pos}
+                </h5>
+                <p>{exp2_dur}</p>
+                <p>{exp2_desc}</p>
+              </div>
+            </div>
+          </div>
+          {/* Projects */}
+          <div className="projects-section">
+            <h3>Projects:</h3>
+            <div className="proj-middle-section">
+              <div className="proj-small-section">
+                <h5>
+                  {proj1_title} <a href={`{proj1_link}`}>({proj1_link})</a>
+                </h5>
+                <p>{proj1_desc}</p>
+              </div>
+            </div>
+            <div className="proj-middle-s">
+              <div className="proj-small-section">
+                <h5>
+                  {proj2_title} <a href={`{proj2_link}`}>({proj2_link})</a>
+                </h5>
+                <p>{proj2_desc}</p>
+              </div>
+            </div>
+          </div>
+          <div className="education">
+            <h3>Education:</h3>
+            <div className="proj-middle-section">
+              <div className="proj-small-section">
+                <h5>
+                  {edu1_school} ({edu1_qualification}, {edu1_year})
+                </h5>
+                <p>{edu1_desc}</p>
+              </div>
+            </div>
+            <div className="proj-middle-section">
+              <div className="proj-small-section">
+                <h5>
+                  {edu2_school} ({edu2_qualification}, {edu2_year})
+                </h5>
+                <p>{edu2_desc}</p>
+              </div>
+            </div>
+          </div>
+          <div className="extra">
+            <h3>Extra-Curriculars/Activities:</h3>
+            <div className="extra-small">
+              <h5>Languages:</h5>
+              <p>{extra_1}</p>
+              <h5>Hobbies:</h5>
+              <p>{extra_2}</p>
+            </div>
+            <h5>Other:</h5>
+            <ul>
+              <li>{extra_3}</li>
+              <li>{extra_4}</li>
+              <li>{extra_5}</li>
+            </ul>
+          </div>
         </div>
-        <form>
+        <form className="cv-buttons">
           {canEdit && (
             <button onClick={this.toggleEditForm} className="btn">
               Show Edit form
