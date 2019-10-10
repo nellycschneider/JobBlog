@@ -55,7 +55,6 @@ export default class JobEdit extends Component {
 
   deleteProject = () => {
     const id = this.props.match.params.id;
-    console.log(id);
     axios.delete(`/portfolio/project/${id}`).then(() => {
       this.props.history.push("/portfolio/dashboard");
     });
@@ -68,20 +67,43 @@ export default class JobEdit extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Job Title: </label>
-            <input type="text" name="title" id="title" onChange={this.handleChange} value={this.state.title} />
+            <input
+              type="text"
+              name="title"
+              id="title"
+              onChange={this.handleChange}
+              value={this.state.title}
+            />
           </div>
 
           <div className="description">
             <label htmlFor="jobDescription">Job Description: </label>
-            <textarea name="jobDescription" id="jobDescription" cols="30" rows="10" onChange={this.handleChange} value={this.state.jobDescription}></textarea>
+            <textarea
+              name="jobDescription"
+              id="jobDescription"
+              cols="30"
+              rows="10"
+              onChange={this.handleChange}
+              value={this.state.jobDescription}
+            ></textarea>
           </div>
 
           <div className="link">
             <label htmlFor="link">Link: </label>
-            <input type="text" name="link" id="link" onChange={this.handleChange} value={this.state.link} />
+            <input
+              type="text"
+              name="link"
+              id="link"
+              onChange={this.handleChange}
+              value={this.state.link}
+            />
           </div>
 
-          <select value={this.state.type} name="type" onChange={this.handleChange}>
+          <select
+            value={this.state.type}
+            name="type"
+            onChange={this.handleChange}
+          >
             <option value="uiux">UI/UX</option>
             <option value="frontend">Frontend</option>
             <option selected value="backend">

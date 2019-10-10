@@ -21,7 +21,6 @@ export default class AllCVs extends Component {
   };
 
   componentDidMount = () => {
-    console.log("USER CV", this.props);
     this.getAllCVs();
   };
 

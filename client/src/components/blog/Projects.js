@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProjecstList = props => {
-  console.log(props);
   const project =
     props &&
     props.projects.map(project => {
@@ -14,11 +13,15 @@ const ProjecstList = props => {
       return (
         <Link to={`/portfolio/project/${project._id}`}>
           <div className="projects">
-            <div className="imgBgDark" style={{ background: "#000", height: "250px", width: "250px" }}>
+            <div
+              className="imgBgDark"
+              style={{ background: "#000", height: "250px", width: "250px" }}
+            >
               <div
                 className="img"
                 style={{
-                  background: `url(${project.content.length > 0 && project.content[0].img})`,
+                  background: `url(${project.content.length > 0 &&
+                    project.content[0].img})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   height: "180px",

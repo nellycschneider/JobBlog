@@ -115,12 +115,12 @@ const Navbar = props => {
               </li>
               <li>
                 <Link className="navItem btn" to="/signup">
-                  <i class="fas fa-signature"></i>
+                  <i className="fas fa-signature"></i>
                 </Link>
               </li>
               <li>
                 <Link className="navItem btn" to="/login">
-                  <i class="fas fa-sign-out-alt"></i>
+                  <i className="fas fa-sign-out-alt"></i>
                 </Link>
               </li>
             </>

@@ -91,9 +91,6 @@ export default class ProjectDetails extends Component {
       );
     });
 
-    const titlePicture = this.state.content[0];
-    console.log("Test: ", titlePicture);
-
     if (this.state.error) return <div>{this.state.error}</div>;
     return (
       <div className="project">

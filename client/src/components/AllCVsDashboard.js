@@ -8,6 +8,7 @@ export default class AllCVs extends Component {
   };
 
   getAllCVs = () => {
+    console.log(this.props.user._id);
     axios
       .get(`/cv/user/${this.props.user._id}`)
       .then(responseFromApi => {

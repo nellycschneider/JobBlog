@@ -58,8 +58,6 @@ export default class FinishedCV extends Component {
     axios
       .get(`/cv/${id}`)
       .then(response => {
-        // console.log("Response from AXIOS", response);
-        // console.log(response.data.owner);
         this.setState({
           name: response.data.name,
           email: response.data.email,
@@ -173,7 +171,6 @@ export default class FinishedCV extends Component {
         // cvs: this.state
       })
       .then(response => {
-        // console.log("PUT response: ", response);
         this.setState({
           name: response.data.name,
           email: response.data.email,

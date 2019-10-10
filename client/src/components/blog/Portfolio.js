@@ -15,12 +15,10 @@ export default class Portfolio extends Component {
   getData = () => {
     const userInUrl = this.props.match.params.username;
     if (!userInUrl) {
-      console.log("NO PROPS.MATCH");
       axios
         .get(`/portfolio/user/${this.props.user._id}`)
         // .get(`/portfolio/user/${userInUrl}`)
         .then(response => {
-          console.log(this.state);
           this.setState({
             projects: response.data
           });

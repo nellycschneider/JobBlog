@@ -24,6 +24,8 @@ export default class Signup extends Component {
     const { username, password } = this.state;
 
     signup(username, password).then(data => {
+      console.log("pre-user", data);
+
       if (data.message) {
         this.setState({
           message: data.message,
@@ -33,6 +35,7 @@ export default class Signup extends Component {
       } else {
         // successfully signed up
         // update the state for the parent component
+        console.log("user", data);
         this.props.setUser(data);
         this.props.history.push("/portfolio/dashboard");
       }
@@ -40,8 +43,6 @@ export default class Signup extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <>
         <div className="login-page">
