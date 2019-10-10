@@ -11,7 +11,6 @@ export default class Portfolio extends Component {
   };
 
   componentDidMount = () => {
-    // console.log("THIS IS DASHBOARD");
     this.getData();
   };
 

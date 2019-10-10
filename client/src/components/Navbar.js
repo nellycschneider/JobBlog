@@ -15,11 +15,11 @@ const Navbar = props => {
 
       <nav className="navBar">
         <ul>
-          <li>
+          {/* <li>
             <Link className="navItem home btn" to="/">
               Home
             </Link>
-          </li>
+          </li> */}
 
           {props.user ? (
             // user is logged in, show these
@@ -55,6 +55,11 @@ const Navbar = props => {
           ) : (
             // else show these
             <>
+              <li>
+                <Link className="navItem home btn" to="/">
+                  Home
+                </Link>
+              </li>
               <li>
                 <Link className="navItem btn" to="/signup">
                   Signup
