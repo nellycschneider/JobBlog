@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Home extends Component {
   render() {
@@ -13,6 +14,14 @@ export default class Home extends Component {
               A nice website where you can create a CV, display your works and
               find jobs.
             </p>
+          </div>
+          <div className="home-small">
+            <Link className="btn btn-color" to="/login">
+              Login
+            </Link>
+            <Link className="btn btn-color" to="/signup">
+              Sign up
+            </Link>
           </div>
         </div>
       </div>

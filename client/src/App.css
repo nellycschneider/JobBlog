@@ -142,19 +142,30 @@ p {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: ;
 }
 
 .homepage h1 {
   font-size: 5rem;
+  font-weight: bold;
+  color: rgb(224, 91, 58);
+  /* border-bottom: 4px solid #4056a1; */
 }
 
 .homepage p {
   font-size: 2.5rem;
   text-align: center;
+  width: 80vw;
 }
 
 .home-small {
   display: flex;
+}
+
+.btn-color {
+  border-color: rgb(224, 91, 58);
+  box-shadow: 3px 3px 0px 0px rgb(224, 91, 58);
+  color: rgb(224, 91, 58);
 }
 
 /* ============================================= */
@@ -235,6 +246,26 @@ input:hover {
 
 .loginSignup {
   margin: 10px 0;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login-page h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
+  /* padding-top: 50px; */
+  color: rgb(224, 91, 58);
+}
+
+.login-page a {
+  color: rgb(224, 91, 58);
 }
 
 /* ============================================= */
