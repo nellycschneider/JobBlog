@@ -10,7 +10,8 @@ export default class CreateNewProject extends Component {
     title: "",
     description: "",
     content: [],
-    owner: ""
+    owner: "",
+    type: ""
   };
 
   handleSubmit = event => {
@@ -21,6 +22,7 @@ export default class CreateNewProject extends Component {
         title: this.state.title,
         description: this.state.description,
         content: this.state.content,
+        type: this.state.type,
         owner: this.props.user._id
       })
       .then(() => {
@@ -28,6 +30,7 @@ export default class CreateNewProject extends Component {
           title: "",
           description: "",
           content: [],
+          type: "",
           owner: this.props.user._id
         });
       })
@@ -74,8 +77,6 @@ export default class CreateNewProject extends Component {
   };
 
   handleClickDelete = deletedContent => {
-    // event.preventDefault();
-    // const filtContent = this.state.content.map(x => x.id !== id);
     const filtContent = this.state.content.filter(content => content.id !== deletedContent.id);
     console.log(filtContent);
     this.setState({
@@ -104,10 +105,14 @@ export default class CreateNewProject extends Component {
     this.setState({ content: updatedContent });
   };
 
+  handleChangeType = event => {
+    this.setState({ type: event.target.value });
+  };
+
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="form-create">
           <div className="title">
             <label htmlFor="title">Project Title: </label>
             <input type="text" name="title" id="title" onChange={this.handleChangeTwo} value={this.state.title} />
@@ -119,15 +124,19 @@ export default class CreateNewProject extends Component {
 
           {this.state.content.map(el => {
             return (
-              <div className="content" key={el.id}>
+              <div className="contentImg" key={el.id}>
                 <button onClick={() => this.handleClickDelete(el)}>
                   <i className="fas fa-minus"></i>
                 </button>
 
-                <label htmlFor="imgUpload">Upload a Picture: </label>
+                <label htmlFor="imgUpload" className="imgUpload">
+                  Upload a Picture:{" "}
+                </label>
                 <input type="file" onChange={e => this.handleFileUpload(e, el.id)} />
 
-                <label htmlFor="description">Picture Description: </label>
+                <label htmlFor="description" className="imgUpload">
+                  Picture Description:{" "}
+                </label>
                 <textarea
                   name="imgDescription"
                   id="imgDescription"
@@ -139,8 +148,23 @@ export default class CreateNewProject extends Component {
               </div>
             );
           })}
-          <button onClick={this.handleClick}>Create new</button>
-          <button type="submit">Create Post</button>
+
+          <button onClick={this.handleClick} className="btn">
+            Upload picture
+          </button>
+
+          <select className="btn" value={this.state.type} name="type" onChange={this.handleChangeType}>
+            <option value="UI/UX">UI/UX</option>
+            <option value="Frontend">Frontend</option>
+            <option selected value="Backend">
+              Backend
+            </option>
+            <option value="Fullstack">Fullstack</option>
+          </select>
+
+          <button type="submit" className="btn">
+            Create Post
+          </button>
         </form>
       </div>
     );

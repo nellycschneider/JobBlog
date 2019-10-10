@@ -5,7 +5,9 @@ export default class ProjectDetails extends Component {
   state = {
     title: "",
     description: "",
-    content: []
+    content: [],
+    createdAt: "",
+    type: ""
   };
 
   getData = () => {
@@ -17,7 +19,9 @@ export default class ProjectDetails extends Component {
         this.setState({
           title: response.data.title,
           description: response.data.description,
-          content: response.data.content
+          content: response.data.content,
+          createdAt: response.data.createdAt,
+          type: response.data.type
         });
       })
       .catch(err => {
@@ -50,7 +54,8 @@ export default class ProjectDetails extends Component {
       .put(`/portfolio/project/${id}`, {
         title: this.state.title,
         description: this.state.description,
-        content: this.state.content
+        content: this.state.content,
+        type: this.state.type
       })
       .then(response => {
         this.setState({
@@ -58,6 +63,7 @@ export default class ProjectDetails extends Component {
           title: response.data.title,
           description: response.data.description,
           content: response.data.content,
+          type: response.data.type,
           editForm: false
         });
       })

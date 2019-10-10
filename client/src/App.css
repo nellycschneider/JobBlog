@@ -4,7 +4,7 @@ font-family: 'IBM Plex Mono', monospace;
 font-family: 'Fira Code', monospace;
 */
 
-@import url("https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:200,300,400,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:100,300,400&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
 
@@ -216,8 +216,59 @@ input:hover {
 /* ============================================= */
 /* ============================================= */
 
+/* Create Project Form */
+.form-create div {
+  margin-bottom: 20px;
+}
+
+.form-create label {
+  font-size: 3rem;
+}
+
+.form-create .description label {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+}
+
+.form-create {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-create textarea {
+  border: 1px solid #000;
+  font-family: "Muli", sans-serif;
+  font-size: 1.5rem;
+}
+
+.form-create .title {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-create .description {
+  display: flex;
+  flex-direction: column;
+}
+
+.imgUpload {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+}
+
+.contentImg {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ======================= */
+
 .form-card input,
-.form-fragment input {
+.form-fragment input,
+.form-create input {
   font-family: "Muli", sans-serif;
   font-size: 1.5rem;
   height: 35px;
@@ -237,7 +288,9 @@ input:hover {
 }
 
 .form-card input:hover,
-.form-fragment input:hover {
+.form-fragment input:hover,
+.form-create input:hover,
+.form-create textarea:hover {
   background: #000;
   color: #fff;
 }
@@ -281,6 +334,15 @@ input:hover {
   max-width: 1100px;
   display: flex;
   justify-content: center;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+  position: fixed;
+  background: #fff;
+  width: 100%;
 }
 
 .navBar ul {
@@ -359,7 +421,7 @@ input:hover {
 .projectDescription {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 100;
-  padding: 10px 0;
+  padding: 30px 0 20px 0;
   font-size: 2rem;
 }
 
@@ -387,13 +449,24 @@ input:hover {
 
 .projectContent p {
   font-size: 1.8rem;
+  font-weight: 200;
+  line-height: 1.7;
 }
 
-/*============= Project Dashboard =============*/
+/* ============================================= */
+/* ============================================= */
+/* Project Dashboard*/
+/* ============================================= */
+/* ============================================= */
 
 .portfolioList {
   display: flex;
   margin: 20px 0;
+}
+
+.contentList .portfolioList {
+  display: flex;
+  flex-direction: column;
 }
 
 .portfolioList .imgBg {
@@ -499,6 +572,10 @@ Mobile
 
   html {
     font-size: 10px;
+  }
+
+  .container-custom {
+    padding: 20px 5px 90px 5px;
   }
 
   /* ============================================= */

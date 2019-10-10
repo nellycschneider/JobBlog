@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ProjectDashboard from "./ProjectDashboard";
 import JobDashboard from "./JobDashboard";
 import axios from "axios";
-import JobEdit from "./JobEdit";
+// import JobEdit from "./JobEdit";
 import AllCVs from "../AllCVs";
 
 export default class Portfolio extends Component {
@@ -30,7 +30,7 @@ export default class Portfolio extends Component {
   };
 
   render() {
-    console.log(this.state.jobs);
+    console.log("PROJECTS----------->", this.state.projects);
     return (
       <div>
         <div className="newJob">

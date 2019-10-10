@@ -6,6 +6,11 @@ const ProjecstList = props => {
   const project =
     props &&
     props.projects.map(project => {
+      const date = project.createdAt.slice(0, 10);
+      const year = date.slice(0, 4);
+      const month = date.slice(5, 7);
+      const day = date.slice(8, 10);
+      const titleDate = `${day}-${month}-${year}`;
       return (
         <Link to={`/portfolio/project/${project._id}`}>
           <div className="projects">
@@ -13,7 +18,7 @@ const ProjecstList = props => {
               <div
                 className="img"
                 style={{
-                  background: `url(${project.content[0].img})`,
+                  background: `url(${project.content.length > 0 && project.content[0].img})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   height: "180px",
@@ -22,7 +27,7 @@ const ProjecstList = props => {
               ></div>
             </div>
             <div className="contentProject">
-              <p className="date">01-03-2019</p>
+              <p className="date">{titleDate}</p>
               <h4 className="title">{project.title}</h4>
               <p className="type">UI/UX</p>
             </div>

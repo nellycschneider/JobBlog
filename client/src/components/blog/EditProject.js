@@ -7,7 +7,9 @@ export default class EditProject extends Component {
   state = {
     title: "",
     description: "",
-    content: []
+    content: [],
+    createdAt: "",
+    type: ""
   };
 
   getData = () => {
@@ -18,7 +20,9 @@ export default class EditProject extends Component {
         this.setState({
           title: response.data.title,
           description: response.data.description,
-          content: response.data.content
+          content: response.data.content,
+          createdAt: response.data.createdAt,
+          type: response.data.type
         });
       })
       .catch(err => {
@@ -112,19 +116,25 @@ export default class EditProject extends Component {
       .put(`/portfolio/project/${id}`, {
         title: this.state.title,
         description: this.state.description,
-        content: this.state.content
+        content: this.state.content,
+        type: this.state.type
       })
       .then(response => {
         this.setState({
           title: response.data.title,
           description: response.data.description,
-          content: response.data.content
+          content: response.data.content,
+          type: this.response.type
         });
       })
       .catch(err => {
         console.log(err);
       });
   };
+
+  handleChangeType(event) {
+    this.setState({ value: event.target.type });
+  }
 
   render() {
     return (
@@ -161,6 +171,16 @@ export default class EditProject extends Component {
                 );
               })
             : null}
+
+          <select value={this.state.type} name="type" onChange={this.handleChangeType}>
+            <option value="UI/UX">UI/UX</option>
+            <option value="Frontend">Frontend</option>
+            <option selected value="Backend">
+              Backend
+            </option>
+            <option value="Fullstack">Fullstack</option>
+          </select>
+
           <button onClick={this.handleClick}>Create new</button>
           <button type="submit">Create Post</button>
           <button onClick={this.deleteProject}>

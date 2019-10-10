@@ -5,18 +5,20 @@ const ProjectList = props => {
   return (
     <div>
       {props.projects.map(project => {
+        const date = project.createdAt.slice(0, 10);
+        const year = date.slice(0, 4);
+        const month = date.slice(5, 7);
+        const day = date.slice(8, 10);
+        const titleDate = `${day}-${month}-${year}`;
         return (
           <>
-            <Link
-              to={`/portfolio/dashboard/edit-project/${project._id}`}
-              className="Link"
-            >
+            <Link to={`/portfolio/dashboard/edit-project/${project._id}`} className="Link">
               <div className="portfolioList">
                 <div className="imgBg" style={{ background: "#D3D3D3", height: "100px", width: "100px" }}>
                   <div
                     className="img"
                     style={{
-                      background: `url(${project.content[0].img})`,
+                      background: `url(${project.content.length > 0 && project.content[0].img})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                       height: "70px",
@@ -24,8 +26,10 @@ const ProjectList = props => {
                     }}
                   ></div>
                 </div>
-                <div className="content">
-                  <p className="date">01-03-2019</p>
+                <div className="contentList">
+                  <div className="break">
+                    <p className="date">{titleDate}</p>
+                  </div>
                   <h4 className="title">{project.title}</h4>
                   <p className="type">UI/UX</p>
                 </div>
@@ -39,13 +43,3 @@ const ProjectList = props => {
 };
 
 export default ProjectList;
-
-/*
-
- <Link to={`/portfolio/dashboard/edit-project/${project._id}`}></Link>
-            <h3>
-              {project.title}
-              </h3>
-              </Link>
-
-*/
