@@ -40,21 +40,40 @@ export default class Login extends Component {
   render() {
     return (
       <>
-        <h2>Login</h2>
-        <div className="form">
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" name="username" value={this.state.username} onChange={this.handleChange} id="username" placeholder="NAME" />
-            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} id="password" placeholder="PASSWORD" />
-            <div className="buttons">
-              <button type="submit" className="btn-form">
-                LOGIN
-              </button>
-            </div>
-            <p className="loginSignup">
-              Still don't have an account ¯\_(ツ)_/¯?? <Link to="/signup">Sign up here</Link>
-            </p>
-            {this.state.message && <Alert variant="danger">{this.state.message}</Alert>}
-          </form>
+        <div className="login-page">
+          <h2>Login</h2>
+          <div className="form">
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                name="username"
+                value={this.state.username}
+                onChange={this.handleChange}
+                id="username"
+                placeholder="NAME"
+              />
+              <input
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                id="password"
+                placeholder="PASSWORD"
+              />
+              <div className="buttons">
+                <button type="submit" className="btn-form">
+                  LOGIN
+                </button>
+              </div>
+              <p className="loginSignup">
+                Still don't have an account ¯\_(ツ)_/¯??{" "}
+                <Link to="/signup">Sign up here</Link>
+              </p>
+              {this.state.message && (
+                <Alert variant="danger">{this.state.message}</Alert>
+              )}
+            </form>
+          </div>
         </div>
       </>
     );

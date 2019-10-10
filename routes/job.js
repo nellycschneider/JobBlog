@@ -8,6 +8,7 @@ router.post("/", (req, res) => {
   const link = req.body.link;
   const type = req.body.type;
   const updatedAt = req.body.updatedAt;
+  const owner = req.body.owner;
   console.log(req.body);
 
   Job.create({
@@ -15,6 +16,7 @@ router.post("/", (req, res) => {
     jobDescription,
     link,
     type,
+    owner,
     updatedAt
   })
     .then(job => {
@@ -48,9 +50,9 @@ router.get("/job/:id", (req, res) => {
 
 router.put("/job/:id", (req, res) => {
   console.log("Job:", req);
-  const { title, jobDescription, link, type, updatedAt } = req.body;
+  const { title, jobDescription, link, type, updatedAt, owner } = req.body;
 
-  Job.findByIdAndUpdate(req.params.id, { title, jobDescription, link, type, updatedAt }, { new: true })
+  Job.findByIdAndUpdate(req.params.id, { title, jobDescription, link, type, updatedAt, owner }, { new: true })
     .then(job => {
       res.json(job);
     })

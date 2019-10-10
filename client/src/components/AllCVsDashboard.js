@@ -28,8 +28,7 @@ export default class AllCVs extends Component {
   render() {
     return (
       <div>
-        <div className="all-cvs">
-          <h1 className="head">All CVs</h1>
+        <div className="all-cvs-dashboard">
           <>
             {this.state.cvs.map(cv => {
               return (

@@ -132,6 +132,44 @@ p {
 
 /* ============================================= */
 /* ============================================= */
+/* HOME */
+/* ============================================= */
+/* ============================================= */
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.homepage h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgb(224, 91, 58);
+  /* border-bottom: 4px solid #4056a1; */
+}
+
+.homepage p {
+  font-size: 2.5rem;
+  text-align: center;
+  width: 80vw;
+}
+
+.home-small {
+  display: flex;
+  padding: 15px;
+}
+
+/* .btn-color {
+  border-color: rgb(224, 91, 58);
+  box-shadow: 3px 3px 0px 0px rgb(224, 91, 58);
+  color: rgb(224, 91, 58);
+} */
+
+/* ============================================= */
+/* ============================================= */
 /* Login Sign in Forms */
 /* ============================================= */
 /* ============================================= */
@@ -208,6 +246,26 @@ input:hover {
 
 .loginSignup {
   margin: 10px 0;
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.login-page h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
+  /* padding-top: 50px; */
+  color: rgb(224, 91, 58);
+}
+
+.login-page a {
+  color: rgb(224, 91, 58);
 }
 
 /* ============================================= */
@@ -320,6 +378,10 @@ input:hover {
   margin: 10px;
 }
 
+.input-margin {
+  margin-bottom: 10px;
+}
+
 /* ============================================= */
 /* ============================================= */
 /* NavBar */
@@ -362,10 +424,14 @@ input:hover {
 
 .contactForm p {
   font-size: 1.5rem;
+  font-family: "Muli", sans-serif;
 }
 
 .contactForm h1 {
   font-size: 5rem;
+  padding: 35px;
+  color: rgb(224, 91, 58);
+  font-weight: bold;
 }
 
 .contactForm .contact {
@@ -380,12 +446,143 @@ input:hover {
 
 .contactForm .icons {
   display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.icons a {
+  color: black;
+  font-size: 1.6rem;
+  font-family: "Muli", sans-serif;
 }
 
 .contactForm i {
   margin-right: 5px;
 }
 
+.skills {
+  padding-top: 20px;
+  font-family: "Muli", sans-serif;
+  text-align: left;
+}
+
+.skills h3 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 10px 0;
+  color: rgb(224, 91, 58);
+}
+
+.skills p {
+  font-size: 1.8rem;
+}
+
+.experience {
+  padding-top: 20px;
+  text-align: left;
+  font-family: "Muli", sans-serif;
+  flex-direction: row;
+}
+
+.experience h3 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 10px 0;
+  color: rgb(224, 91, 58);
+}
+
+.exp-small-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-small-section h5 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.exp-small-section p {
+  font-size: 1.6rem;
+}
+
+.projects-section {
+  padding-top: 20px;
+  text-align: left;
+  font-family: "Muli", sans-serif;
+}
+
+.projects-section h3 {
+  padding: 10px 0;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: rgb(224, 91, 58);
+}
+
+.projects-section a {
+  color: black;
+}
+
+.proj-small-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.proj-small-section h5 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.proj-small-section p {
+  font-size: 1.6rem;
+}
+
+.education {
+  padding-top: 20px;
+  text-align: left;
+  font-family: "Muli", sans-serif;
+}
+
+.education h3 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 10px 0;
+  color: rgb(224, 91, 58);
+}
+
+.extra {
+  padding-top: 20px;
+  text-align: left;
+  font-family: "Muli", sans-serif;
+  flex-direction: row;
+}
+
+.extra h3 {
+  padding: 10px 0;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: rgb(224, 91, 58);
+}
+
+.extra h5 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.extra-small p {
+  font-size: 1.6rem;
+}
+
+.extra li {
+  list-style: none;
+  font-size: 1.6rem;
+}
+
+.cv-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px;
+}
 /* ============================================= */
 /* ============================================= */
 /* Portfolio / Project Detail*/
@@ -489,6 +686,11 @@ input:hover {
   justify-content: space-around;
 }
 
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*============= Portfolio / Projects =============*/
 
 .projectPosition {
@@ -694,4 +896,24 @@ Mobile
   .MobileNavBar i {
     font-size: 1.8rem;
   }
+}
+
+/* ============================================= */
+/* ============================================= */
+/*ALL CVS*/
+/* ============================================= */
+/* ============================================= */
+
+.all-cvs {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.all-cvs-dashboard {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }

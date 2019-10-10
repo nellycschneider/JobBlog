@@ -33,6 +33,7 @@ export default class CreateNewProject extends Component {
           type: "",
           owner: this.props.user._id
         });
+        this.props.history.push("/portfolio/dashboard");
       })
       .catch(err => {
         console.log(err);

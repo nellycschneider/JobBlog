@@ -11,7 +11,8 @@ const projectSchema = new Schema(
         imgDescription: String,
         img: String
       }
-    ]
+    ],
+    type: ""
   },
   {
     timestamps: true

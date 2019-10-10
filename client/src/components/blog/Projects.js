@@ -14,7 +14,10 @@ const ProjecstList = props => {
       return (
         <Link to={`/portfolio/project/${project._id}`}>
           <div className="projects">
-            <div className="imgBgDark" style={{ background: "#000", height: "250px", width: "250px" }}>
+            <div
+              className="imgBgDark"
+              style={{ background: "#000", height: "250px", width: "250px" }}
+            >
               <div
                 className="img"
                 style={{

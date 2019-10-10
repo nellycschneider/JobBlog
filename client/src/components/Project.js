@@ -22,22 +22,22 @@ class Project extends Component {
         <form onSubmit={this.continue}>
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-6 text-left">
-              <label>Title*</label>
               <input
                 type="text"
                 name="proj1_title"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Title*"
                 defaultValue={values.status === 1 ? "" : values.proj1_title}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="col-lg-6 text-left">
-              <label>Link</label>
               <input
                 type="text"
                 name="proj1_link"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Link"
                 defaultValue={values.status === 1 ? "" : values.proj1_link}
                 onChange={handleChange}
               />
@@ -45,11 +45,11 @@ class Project extends Component {
           </div>
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-12 text-left">
-              <label>Description*</label>
               <input
                 type="text"
                 name="proj1_desc"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Description*"
                 defaultValue={values.status === 1 ? "" : values.proj1_desc}
                 onChange={handleChange}
                 required
@@ -63,22 +63,22 @@ class Project extends Component {
 
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-6 text-left">
-              <label>Title*</label>
               <input
                 type="text"
                 name="proj2_title"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Title*"
                 defaultValue={values.status === 1 ? "" : values.proj2_title}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="col-lg-6 text-left">
-              <label>Link</label>
               <input
                 type="text"
                 name="proj2_link"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Link"
                 defaultValue={values.status === 1 ? "" : values.proj2_link}
                 onChange={handleChange}
               />
@@ -86,11 +86,11 @@ class Project extends Component {
           </div>
           <div className="row col-lg-10 mx-auto">
             <div className="col-lg-12 text-left">
-              <label>Description*</label>
               <input
                 type="text"
                 name="proj2_desc"
-                className="form-control"
+                className="form-control input-margin"
+                placeholder="Description*"
                 defaultValue={values.status === 1 ? "" : values.proj2_desc}
                 onChange={handleChange}
                 required

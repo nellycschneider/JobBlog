@@ -50,7 +50,8 @@ class UserForm extends React.Component {
     extra_4: "",
     extra_5: "",
 
-    status: 0
+    status: 0,
+    id: ""
   };
 
   // Proceed to next step
@@ -85,6 +86,10 @@ class UserForm extends React.Component {
       },
       () => console.log(this.state)
     );
+  };
+
+  getId = id => {
+    this.setState({ id });
   };
 
   render() {
@@ -160,6 +165,7 @@ class UserForm extends React.Component {
                 nextStep={this.nextStep}
                 submitted={this.submitted}
                 handleChange={this.handleChange}
+                getId={this.getId}
               />
             </div>
             <br />
@@ -170,7 +176,7 @@ class UserForm extends React.Component {
         return (
           <div className="App pt-5 mt-5">
             <div className="container col-lg-8 mx-auto text-center">
-              <Success values={this.state} />
+              <Success values={this.state} id={this.state.id} />
             </div>
             <br />
           </div>

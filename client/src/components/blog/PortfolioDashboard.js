@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import ProjectDashboard from "./ProjectDashboard";
 import JobDashboard from "./JobDashboard";
 import axios from "axios";
-// import JobEdit from "./JobEdit";
-import AllCVs from "../AllCVs";
+import AllCVsDashboard from "../AllCVsDashboard";
 
 export default class Portfolio extends Component {
   state = {
@@ -12,7 +11,7 @@ export default class Portfolio extends Component {
   };
 
   componentDidMount = () => {
-    console.log("THIS IS DASHBOARD");
+    // console.log("THIS IS DASHBOARD");
     this.getData();
   };
 
@@ -48,7 +47,7 @@ export default class Portfolio extends Component {
           </div>
           <div className="portfolioButton">
             <Link to="/portfolio/dashboard/create-new" className="btn my-3">
-              Create Artwork
+              Add Artwork
             </Link>
           </div>
           <ProjectDashboard projects={this.state.projects} />
@@ -56,11 +55,11 @@ export default class Portfolio extends Component {
 
         <div className="jobEdit">
           <div className="sectionLine my-3">
-            <h3 className="sectionHead">Created Jobs</h3>
+            <h3 className="sectionHead">Create Jobs</h3>
           </div>
-          <div className="portfolioButton">
+          <div className="portfolioButton btn-center">
             <Link to="/job/create-new" className="btn my-3">
-              Create Job
+              Add Job
             </Link>
             {/* <JobEdit /> */}
           </div>
@@ -70,12 +69,12 @@ export default class Portfolio extends Component {
           <div className="sectionLine my-3">
             <h3 className="sectionHead">All CVs</h3>
           </div>
-          <div className="portfolioButton">
+          <div className="portfolioButton btn-center">
             <Link to="/cv/form" className="btn my-3">
-              Create CV
+              Add CV
             </Link>
-            <AllCVs user={this.props.user} />
           </div>
+          <AllCVsDashboard user={this.props.user} />
         </div>
       </div>
     );

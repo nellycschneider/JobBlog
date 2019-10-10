@@ -11,6 +11,7 @@ router.post("/", (req, res) => {
   const content = req.body.content;
   const updatedAt = req.body.updatedAt;
   const owner = req.body.owner;
+  const type = req.body.type;
   console.log(req.body);
 
   Project.create({
@@ -18,6 +19,7 @@ router.post("/", (req, res) => {
     description,
     content,
     owner,
+    type,
     updatedAt
   })
     .then(project => {
@@ -83,9 +85,9 @@ router.get("/project/:id", (req, res) => {
 // PUT portfolio/:id
 router.put("/project/:id", (req, res) => {
   console.log("Proect:", req);
-  const { title, description, content } = req.body;
+  const { title, description, content, type } = req.body;
 
-  Project.findByIdAndUpdate(req.params.id, { title, description, content, updatedAt }, { new: true })
+  Project.findByIdAndUpdate(req.params.id, { title, description, content, updatedAt, type }, { new: true })
     .then(project => {
       res.json(project);
     })
