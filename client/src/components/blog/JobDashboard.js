@@ -25,30 +25,35 @@ export default class JobDashboard extends Component {
   };
 
   render() {
-    console.log(this.state.jobs);
-    const jobList = this.state.jobs.map(el => {
-      console.log(el.link);
-      return (
-        <div className="jobs">
-          <a
-            rel="noopener noreferrer"
-            target="_blank"
-            href={`http://${el.link}`}
-          >
-            <div
-              className="imgBgDark center"
-              style={{ background: "#000", height: "200px", width: "200px" }}
+    const jobList = this.state.jobs
+      .sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      })
+      .map(el => {
+        // const created = el.createdAt;
+        // console.log(created);
+
+        return (
+          <div className="jobs" key={el._id}>
+            <a
+              rel="noopener noreferrer"
+              target="_blank"
+              href={`http://${el.link}`}
             >
-              <p className="type">{el.type}</p>
-            </div>
-            <div className="contentJob">
-              <p className="date">{el.updatedAt}</p>
-              <h4 className="title">{el.title}</h4>
-            </div>
-          </a>
-        </div>
-      );
-    });
+              <div
+                className="imgBgDark center"
+                style={{ background: "#000", height: "200px", width: "200px" }}
+              >
+                <p className="type">{el.type}</p>
+              </div>
+              <div className="contentJob">
+                <p className="date">{el.updatedAt}</p>
+                <h4 className="title">{el.title}</h4>
+              </div>
+            </a>
+          </div>
+        );
+      });
 
     return <>{jobList}</>;
   }
